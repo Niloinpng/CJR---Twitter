@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: Border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background: #8BC34A;
+}
+
+.nav-content {
+    list-style-type: none;
+}
+
+.nav-content li {
+    display: inline-block;
+    font-size: 20px;
+    color: #222E50;
+    padding: 0px 60px;
+}
+
+#entrar-conta {
+    background: #222E50;
+    color: #FFFFFF;
+    border-radius: 8px;
+}
+
+#criar-conta:hover {
+    color: #FFFFFF;
+    transition: all 700ms ease-in-out;
+}
+
+#entrar-conta:hover {
+    color: #222E50;
+    background: #FFFFFF;
+    transition: all 700ms ease-in-out;
+}
