@@ -8,7 +8,7 @@ var botao = 'entrar'
 
 console.log(time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds())
 
-//Muda a outline do formulario quando esta no foco
+//Muda a outline do formulario quando esta no foco teste
 emini.addEventListener('focus', () => {
     emini.style.borderColor = '#600833'
 })
