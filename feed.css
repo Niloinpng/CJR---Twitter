@@ -39,3 +39,49 @@ nav {
     background: #FFFFFF;
     transition: all 700ms ease-in-out;
 }
+
+main {
+    background: #2b407b;
+}
+
+
+.feed-content {
+    background: #5b78c9;
+    margin: auto;
+    width: 60%;
+    border: 2px solid #FFFFFF;
+    border-radius: 8px;
+}
+
+#back-icon {
+    padding-top: 10px;
+    padding-left: 15px;
+}
+
+.message-content {
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.message-header-content {
+    display: inline-block;
+    
+    
+}
+
+#profile-image {
+    border-radius: 50px;
+}
+
+.feed-text {
+    color: #e3d8d8;
+}
+
+.date-text {
+    color:#4a4747
+}
+
+
+
+
