@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: Border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background: #8BC34A;
+}
+
+#cjr-logo {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 2px 25px;
+}
+
+.nav-content {
+    list-style-type: none;
+}
+
+.nav-content li {
+    display: inline-block;
+    font-size: 20px;
+    color: #222E50;
+    padding: 0px 60px;
+}
+
+#entrar-conta {
+    background: #222E50;
+    color: #FFFFFF;
+    border-radius: 12px;
+    padding: 10px 20px;
+}
+
+#criar-conta:hover {
+    color: #FFFFFF;
+    transition: all 700ms ease-in-out;
+}
+
+#entrar-conta:hover {
+    color: #222E50;
+    background: #FFFFFF;
+    transition: all 700ms ease-in-out;
+}
+
+main {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 50px 2px;
+    background: #222E50;
+}
+
+#cjr-big-logo {
+    width: 600px;
+
+}
+
+.recup-box {
+    background: #314372;
+    width: 400px;
+    height: 540px;
+    border-radius: 12px;
+}
+
+.recup-content {
+    padding: 45px;
+}
+
+.recup_header {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    color: #FFFFFF;
+}
+
+.margin-dist-f {
+    margin-bottom: 20px;
+}
+
+.center {
+    text-align: center;
+}
+
+.input-label {
+    color: #FFFFFF;
+    font-size: medium;
+}
+
+.input-box {
+    border-radius: 15px;
+    width: 100%;
+    height: 50px;
+    border-color: transparent;
+    padding-left: 10px;
+    font-size: small;
+}
+
+.input-box:focus {
+    background: #daecc6;
+}
+
+.acesse {
+    color: #182037;
+    font-weight: bold;
+    font-size: small;
+}
+
+.button-box {
+    border-radius: 15px;
+    width: 50%;
+    height: 40px;
+    border: none;
+    font-size: small;
+    color: grey;
+}
+
+.button-box:hover {
+    background: #daecc6;
+    transition: all 700ms ease-in-out;
+}
