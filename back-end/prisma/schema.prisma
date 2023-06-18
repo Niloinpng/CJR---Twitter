@@ -21,4 +21,39 @@ model Usuario{
   nome String
   genero String 
   data DateTime @default(now())
+  //imagem
+  //admin Boolean
+  //posts Post[]
+  //coments Coments[]
+}
+
+//Post
+model Post{
+  id Int @id @default(autoincrement())
+  //user User @relation(fields: [user_id], references: [id])
+  user_id Int 
+  content String
+  updated_at DateTime @updatedAt
+  created_at DateTime @default(now())
+  //coments Coments[]
+}
+
+//Comentario
+model Coments{
+  id Int @id @default(autoincrement())
+  //user User @relation(fields: [user_id], references: [id])
+  user_id Int 
+  //post Post @relation(fields: [post_id], references: [id])
+  post_id Int 
+  content String
+}
+
+//Cargo
+//Relação N:1 ainda não estabelecida
+model Cargo{
+  id Int @id @default(autoincrement())
+  nome String 
+  nucleo String 
+  created_at DateTime @default(now())
+  //useres User[]
 }
