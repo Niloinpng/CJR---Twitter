@@ -1,0 +1,24 @@
+//  Arquivo de esquema do Prisma
+//  Documento: https://pris.ly/d/prisma-schema
+
+
+//  BASE
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./database.db"
+}
+
+
+//  TABELAS DO BANCO DE DADOS
+model Usuario{
+  id Int @id @default(autoincrement())
+  email String @unique
+  senha String
+  nome String
+  genero String 
+  data DateTime @default(now())
+}
