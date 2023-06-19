@@ -3,13 +3,18 @@ const prisma = new PrismaClient();
 
 class Usuario{
 
-    async criarUsuario(email,senha,nome,genero){
+    async criarUsuario(email,senha,nome,genero,cargo,nucleo,imagem){
         return await prisma.usuario.create({
             data: {
                 email,
                 senha,
                 nome,
-                genero
+                genero,
+                cargo,
+                nucleo: {
+                    connect: {nome: nucleo}
+                },
+                imagem
             }
         }).catch(e => {
             if(e.code == "P2002") throw new Error("Email já cadastrado");

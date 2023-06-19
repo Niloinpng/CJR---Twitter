@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import Usuario from "../usuario/usuario.js";
+import Usuario from "../usuario/usuario.service.js";
 
 const usuario = new Usuario();
 
@@ -12,8 +12,8 @@ class Autentificação{
         return{token};
     }
 
-    async cadastro(email,senha,nome,genero){
-        const novoUsuario = await usuario.criarUsuario(email,senha,nome,genero);
+    async cadastro(email,senha,nome,genero,imagem){
+        const novoUsuario = await usuario.criarUsuario(email,senha,nome,genero,imagem);
         return novoUsuario;
     }
 }
