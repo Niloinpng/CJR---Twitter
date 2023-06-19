@@ -8,6 +8,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /*tres elementos acima centralizam componentes verticalmente na nav e cria espaço entre elementos*/
     padding: 20px 80px;
     background: #8BC34A;
 }
@@ -19,11 +20,11 @@ nav {
 }
 
 .nav-content {
-    list-style-type: none;
+    list-style-type: none;  /*tira bullets da lista*/
 }
 
 .nav-content li {
-    display: inline-block;
+    display: inline-block; /*faz os list items ficarem horizontais*/
     font-size: 20px;
     color: #222E50;
     padding: 0px 60px;
@@ -33,9 +34,10 @@ nav {
     background: #222E50;
     color: #FFFFFF;
     border-radius: 12px;
-    padding: 10px 20px;
+    padding: 10px 20px; /*cria caixinha envolta do componente de entrar*/
 }
 
+/*hover faz a mudança de cor ao passar o mouse*/
 #criar-conta:hover {
     color: #FFFFFF;
     transition: all 700ms ease-in-out;
@@ -51,13 +53,13 @@ main {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    /*centraliza elements na main e insere espaço entre eles*/
     padding: 50px 2px;
     background: #222E50;
 }
 
 #cjr-big-logo {
     width: 600px;
-
 }
 
 .recup-box {
@@ -72,6 +74,7 @@ main {
 }
 
 .recup_header {
+    /*margin especifica espaçamento entre elementos dentro do box de recup-box*/
     margin-top: 30px;
     margin-bottom: 40px;
     color: #FFFFFF;
@@ -100,6 +103,7 @@ main {
     font-size: small;
 }
 
+/*especifica mudança ao clicar nos inputs*/
 .input-box:focus {
     background: #daecc6;
 }
