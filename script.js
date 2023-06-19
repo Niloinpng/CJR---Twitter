@@ -125,7 +125,7 @@ pasini.addEventListener('blur', () => { //blur da senha #vai ser alterado
         cadeado.style.borderColor = corerro
         senerro.style.display = 'block'
         return
-    } else if (tmvalido(pasini.value, 8, 250) && botao === 'registrar') {
+    } else if (tmvalido(pasini.value, 8, 250) && (botao === 'registrar' || botao == 'registrando')) {
         pasini.style.borderColor = corcerto
         cadeado.style.borderColor = corcerto
         senerro.style.display = 'none'
@@ -277,3 +277,32 @@ function tmvalido(value, minimo, maximo) { // valida a senha de acordo com o tam
     }
     return false
 }
+
+const inputFile = document.querySelector("#picture__input");
+const pictureImage = document.querySelector(".picture__image");
+const pictureImageTxt = "Choose an image";
+pictureImage.innerHTML = pictureImageTxt;
+
+inputFile.addEventListener("change", function (e) {
+  const inputTarget = e.target;
+  const file = inputTarget.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.addEventListener("load", function (e) {
+      const readerTarget = e.target;
+
+      const img = document.createElement("img");
+      img.src = readerTarget.result;
+      img.classList.add("picture__img");
+
+      pictureImage.innerHTML = "";
+      pictureImage.appendChild(img);
+    });
+
+    reader.readAsDataURL(file);
+  } else {
+    pictureImage.innerHTML = pictureImageTxt;
+  }
+});
