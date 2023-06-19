@@ -48,7 +48,7 @@ main {
 .feed-content {
     background: #5b78c9;
     margin: auto;
-    width: 60%;
+    width: 50%;
     border: 2px solid #FFFFFF;
     border-radius: 8px;
 }
@@ -58,20 +58,22 @@ main {
     padding-left: 15px;
 }
 
-.message-content {
-    padding-top: 10px;
-    padding-left: 50px;
-    padding-right: 50px;
-}
-
-.message-header-content {
-    display: inline-block;
-    
-    
+.message-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 260px;
 }
 
 #profile-image {
     border-radius: 50px;
+}
+
+.message-header-content {
+    display: inline-block;
 }
 
 .feed-text {
@@ -80,6 +82,11 @@ main {
 
 .date-text {
     color:#4a4747
+}
+
+.message-text, .message-comment {
+    padding-left: 95px;
+    padding-right: 95px;
 }
 
 
