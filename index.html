@@ -8,11 +8,52 @@
     </head>
 
     <body>
-        <form id="logini">
+        <form id="logini" action="login.js" method="post">
+            <img id="loginimg" src="images/login.svg">
+
+            <label class="picture" for="picture__input" tabIndex="0">
+            <span class="picture__image"></span>
+            </label>
+            <input type="file" name="picture__input" id="picture__input">
             <h3>Entre na sua conta CJRead</h3>
             <input id="emini" type="email" name="email" placeholder="Email entrar/registrar" />
-            <text id="emerro">Digite um email valido!</text>
+                <div class="carta" id="cartaid">
+                    <div class="abre"></div>
+                    <div class="abref"></div>
+                    <div class="corpo3"></div>
+                </div>
+                <text id="emerro">Digite um email valido!</text>
+                <text id="emerro2">E-mail já cadastrado!</text>
             <input id="pasini" type="password" name="Senha" placeholder="Senha..." />
+                <div class="cadeado" id="cadeadoid">
+                    <div class="arco"></div>
+                    <div class="arcov"></div>
+                    <div class="corpo"></div>
+                    <div class="caixa"></div>
+                </div>
+                <text id="senerro">Digite uma senha valida!</text>
+            <fieldset id="regini">
+                <input id="nomeini" type="text" name="nome" placeholder="Seu nome" />
+                    <div class="busto" id="bustoid">
+                        <div class="cabeca"></div>
+                        <div class="corpo2"></div>
+                        <div class="caixa"></div>
+                    </div>
+                    <text id="nomerro">Digite um nome valido!</text>
+                <select id="Idgenero">
+                    <option value="">Gênero...</option>
+                    <option value="Femin">Mulher</option>
+                    <option value="Mscln">Homem</option>
+                    <option value="Nabin">Não Binário</option>
+                </select>
+                    <text id="generro">Escolha um!</text>
+                <input id="cargoini" type="text" name="Cargo" placeholder="Seu cargo" />
+                    <div class="martelo" id="marteloid">
+                        <div class="cabeca2"></div>
+                        <div class="aste"></div>
+                    </div>
+                <text id="carerro">Digite um cargo valido!</text>
+            </fieldset>
             <input id="enviarform" type="submit" name="acao" value="Entrar" />
             <input id="abrirform" type="button" name="acao" value="Registrar" />
         </form>

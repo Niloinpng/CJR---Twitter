@@ -1,23 +1,220 @@
+form img[id=loginimg] {
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#picture__input {
+    display: none;
+}
+
+.picture {
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    height: 30%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: #ddd;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    border: 2px dashed currentcolor;
+    cursor: pointer;
+    font-family: sans-serif;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+    outline: none;
+    overflow: hidden;
+}
+
+.picture:hover {
+    color: #777;
+    background: #ccc;
+}
+
+.picture__img {
+    max-width: 100%;
+}
+
+/* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */
+
+.carta {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    transform: translate(0,-40px);
+    border: 2px solid var(--corbordas);
+    z-index: 0;
+    background-color: var(--cormedia);
+    background-clip: content-box;
+}
+.corpo3 {
+    width: 60%;
+    height: 40%;
+    background-color: var(--formulario);
+    border-radius: 10%;
+    transform: translate(35%,80%);
+    position: absolute;
+    z-index: 1;
+}
+.abref {
+    width: 50%;
+    height: 50%;
+    background-color: var(--cormedia);
+    border-radius: 15%;
+    transform: translate(50%,5%) rotate(225deg);
+    clip-path: polygon(0% 90% , 0% 0%, 90%  0%);
+    position: absolute;
+    z-index: 2;
+}
+.abre {
+    width: 50%;
+    height: 50%;
+    background-color: var(--formulario);
+    border-radius: 15%;
+    transform: translate(50%,-5%) rotate(225deg);
+    clip-path: polygon(0% 75% , 0% 0%, 75%  0%);
+    position: absolute;
+    z-index: 3;
+}
+
+/* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */
+
+.cadeado {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    transform: translate(0,-40px);
+    background-color: var(--cormedia);
+    border: 2px solid var(--corbordas);
+    z-index: 0;
+    background-clip: content-box;
+}
+.arco {
+    width: 40%;
+    height: 30%;
+    background-color: var(--formulario);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    transform: translate(76%,60%);
+    position: absolute;
+    z-index: 1;
+}
+.arcov {
+    width: 20%;
+    height: 15%;
+    background-color: var(--cormedia);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    transform:translate(200%,190%);
+    position: absolute;
+    z-index: 2;
+}
+.corpo {
+    width: 50%;
+    height: 30%;
+    background-color: var(--formulario);
+    border-radius: 20%;
+    transform: translate(50%,150%);
+    position: absolute;
+    z-index: 3;
+}
+
+/* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */
+
+.busto {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    transform: translate(0,-40px);
+    background-color: var(--cormedia);
+    border: 2px solid var(--corbordas);
+    z-index: 0;
+    background-clip: content-box;
+}
+.cabeca {
+    width: 27%;
+    height: 27%;
+    background-color: var(--formulario);
+    border-radius: 50%;
+    transform: translate(135%,60%);
+    position: absolute;
+    z-index: 1;
+}
+.corpo2 {
+    width: 50%;
+    height: 30%;
+    background-color: var(--formulario);
+    border-radius: 20%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    transform: translate(50%,150%);
+    position: absolute;
+    z-index: 3;
+}
+
+/* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */
+
+.martelo {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    transform: translate(0,-40px);
+    background-color: var(--cormedia);
+    border: 2px solid var(--corbordas);
+    z-index: 0;
+    background-clip: content-box;
+}
+.cabeca2 {
+    width: 25%;
+    height: 40%;
+    background-color: var(--formulario);
+    border-radius: 30%;
+    transform: translate(110%,40%) rotate(45deg);
+    position: absolute;
+    z-index: 1;
+}
+.aste {
+    width: 70%;
+    height: 15%;
+    background-color: var(--formulario);
+    border-radius: 30%;
+    transform: translate(25%,280%) rotate(45deg);
+    position: absolute;
+    z-index: 2;
+}
+
+/* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */
+
+:root {
+    --formulario: #fff;
+    --corclara: #a15;
+    --cormedia: #803;
+    --corescura: #601;
+    --corbordas: #ccc;
+    --corerro: #a00;
+    --corcerto: #0a0;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: Border-box;
 }
 
-#teste {
-    color: #f00;
-    cursor: default;
-}
-
 body {
-    background-color: #600833;
+    background-color: var(--cormedia);
 }
 
 form {
-    background-color: #ffffff; /* Cor de fundo do formulario */
-    max-width: 500px; /* Tamanho maximo do formulario */
-    width: 60%; /* Largura do formulario em relação a tela */
-    padding: 20px;
+    background-color: var(--formulario); /* Cor de fundo do formulario */
+    max-width: 450px; /* Tamanho maximo do formulario */
+    width: 50%; /* Largura do formulario em relação a tela */
+    padding: 10px;
     position: absolute;
     left: 50%; /* Posição do formulario em relação a tela */
     top: 50%; /* Posição do formulario em relação a tela */
@@ -30,37 +227,134 @@ form h3 {
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: bold;
-    font-size: 200%; /* Tamanho da fonte definido em pixels */
+    font-size: 200%; /* Tamanho da fonte */
     text-align: center; /* Posicão do texto */
-    color: #600833;
+    color: var(--cormedia);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-form input[type=email], form input[type=password] {
-    width: 100%;
-    height: 45px;
-    border: 2px solid #ccc;
+/* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */
+
+form input[type=email] {
+    width: calc(100% - 35px);
+    height: 35px;
+    border: 2px solid var(--corbordas);
     padding-left: 10px;
-    margin: 10px 0;
+    margin: 5px 0;
+    transform: translateX(35px);
 }
 
-form text[id=emerro]{
+form input[id=pasini] {
+    width: calc(100% - 35px);
+    height: 35px;
+    border: 2px solid var(--corbordas);
+    padding-left: 10px;
+    margin: 5px 0;
+    transform: translateX(35px);
+}
+
+/* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */
+
+form fieldset[id=regini] {
+    background-color: var(--formulario); /* Cor de fundo do formulario */
+    max-width: 440px; /* Tamanho maximo do formulario */
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--corbordas);
+    display: none;
+    transition: 500ms;
+}
+
+/* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */
+
+form input[id=nomeini] {
+    width: calc(100% - 35px);
+    height: 35px;
+    border: 2px solid var(--corbordas);
+    padding-left: 10px;
+    margin: 5px 0;
+    transform: translateX(35px);
+}
+
+form select[id=Idgenero] {
+    width: 45%;
+    height: 30px;
+    border: 2px solid var(--corbordas);
+    padding-left: 10px;
+    margin: 5px 0;
+}
+
+form input[id=cargoini] {
+    width: calc(100% - 35px);
+    height: 35px;
+    border: 2px solid var(--corbordas);
+    padding-left: 10px;
+    margin: 5px 0;
+    transform: translateX(35px);
+}
+
+/* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */
+
+form text[id=emerro] {
+    position: relative;
     display: none;
     text-align: center;
     text-decoration: underline;
-    color: #b00;
+    color: var(--corerro);
 }
 
-form input[id=emini]:focus, form input[id=pasini]:focus {
+form text[id=emerro2] {
+    position: relative;
+    display: none;
+    text-align: center;
+    text-decoration: underline;
+    color: var(--corerro);
+}
+
+form text[id=senerro] {
+    display: none;
+    text-align: center;
+    text-decoration: underline;
+    color: var(--corerro);
+}
+
+form text[id=nomerro] {
+    display: none;
+    text-align: center;
+    text-decoration: underline;
+    color: var(--corerro);
+}
+
+form text[id=generro] {
+    display: none;
+    text-decoration: underline;
+    color: var(--corerro);
+    text-align: center;
+    transform: translatey(50%);
+}
+
+form text[id=carerro] {
+    display: none;
+    text-align: center;
+    text-decoration: underline;
+    color: var(--corerro);
+}
+
+/* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */
+
+form input[id=emini]:focus, form input[id=pasini]:focus,
+form input[id=nomeini]:focus, form input[id=cargoini], form select[id=Idgenero]:focus {
     outline: none;
 }
+
+/* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */
 
 form input[id=enviarform] {
     width: 84%;
     height: 40px;
     cursor: pointer; /* Muda o ponteiro do mouse */
-    background: #600833;
-    color: #ffffff;
+    background: var(--cormedia);
+    color: var(--formulario);
     border: 0;
     border-radius: 5px;
     margin: 10px 0;
@@ -76,8 +370,8 @@ form input[id=abrirform] {
     display: inline;
     width: 15%; /* largura do botão */
     height: 40px; /* Altura do botão em pixel */
-    background: #422; /* Cor do botão */
-    color: #ffffff; /* Cor da fonte */
+    background: var(--corescura); /* Cor do botão */
+    color: var(--formulario); /* Cor da fonte */
     border: 0;
     border-radius: 5px; /* Arendonda as bordas */
     margin: 10px 0;
