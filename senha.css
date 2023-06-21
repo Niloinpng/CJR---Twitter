@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: Border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*tres elementos acima centralizam componentes verticalmente na nav e cria espaço entre elementos*/
+    padding: 1.5% 5%;
+    background: #8BC34A;
+}
+
+#cjr-logo {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 6% 35%;
+}
+
+.nav-content {
+    list-style-type: none;  /*tira bullets da lista*/
+}
+
+.nav-content li {
+    display: inline-block; /*faz os list items ficarem horizontais*/
+    font-size: 100%;
+    color: #222E50;
+    padding: 6px 60px;
+}
+
+#entrar-conta {
+    background: #222E50;
+    color: #FFFFFF;
+    border-radius: 12px;
+    padding: 10px 20px; /*cria caixinha envolta do componente de entrar*/
+}
+
+/*hover faz a mudança de cor ao passar o mouse*/
+#criar-conta:hover {
+    color: #FFFFFF;
+    transition: all 700ms ease-in-out;
+}
+
+#entrar-conta:hover {
+    color: #222E50;
+    background: #FFFFFF;
+    transition: all 700ms ease-in-out;
+}
+
+main {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /*centraliza elements na main e insere espaço entre eles*/
+    padding: 50px 2px;
+    background: #222E50;
+}
+
+#cjr-big-logo {
+    width: 35%;
+}
+
+@media (max-width: 1140px) {
+    #cjr-big-logo {display: none;}
+}
+
+.recup-box {
+    background: #314372;
+    width: 32%;
+    height: 540px;
+    border-radius: 12px;
+}
+
+@media (max-width: 1140px) {
+    .recup-box {width: 60%;}
+}
+
+.recup-content {
+    padding: 10%;
+}
+
+.recup_header {
+    /*margin especifica espaçamento entre elementos dentro do box de recup-box*/
+    margin-top: 4%;
+    margin-bottom: 10%;
+    color: #FFFFFF;
+}
+
+.margin-dist-f {
+    margin-bottom: 6%;
+}
+
+.center {
+    text-align: center;
+}
+
+.input-label {
+    color: #FFFFFF;
+    font-size: medium;
+}
+
+.input-box {
+    border-radius: 15px;
+    width: 100%;
+    height: 50px;
+    border-color: transparent;
+    outline: none;
+    padding-left: 10%;
+    font-size: small;
+}
+
+/*especifica mudança ao clicar nos inputs*/
+.input-box:focus {
+    background: #daecc6;
+}
+
+.acesse {
+    color: #182037;
+    font-weight: bold;
+    font-size: small;
+}
+
+.button-box {
+    border-radius: 15px;
+    width: 50%;
+    height: 40px;
+    border: none;
+    font-size: small;
+    color: grey;
+}
+
+.button-box:hover {
+    background: #daecc6;
+    transition: all 700ms ease-in-out;
+}
