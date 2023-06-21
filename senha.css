@@ -59,29 +59,37 @@ main {
 }
 
 #cjr-big-logo {
-    width: 600px;
+    width: 35%;
+}
+
+@media (max-width: 1140px) {
+    #cjr-big-logo {display: none;}
 }
 
 .recup-box {
     background: #314372;
-    width: 400px;
+    width: 32%;
     height: 540px;
     border-radius: 12px;
 }
 
+@media (max-width: 1140px) {
+    .recup-box {width: 60%;}
+}
+
 .recup-content {
-    padding: 45px;
+    padding: 10%;
 }
 
 .recup_header {
     /*margin especifica espaçamento entre elementos dentro do box de recup-box*/
-    margin-top: 30px;
-    margin-bottom: 40px;
+    margin-top: 4%;
+    margin-bottom: 10%;
     color: #FFFFFF;
 }
 
 .margin-dist-f {
-    margin-bottom: 20px;
+    margin-bottom: 6%;
 }
 
 .center {
@@ -99,7 +107,7 @@ main {
     height: 50px;
     border-color: transparent;
     outline: none;
-    padding-left: 10px;
+    padding-left: 10%;
     font-size: small;
 }
 
