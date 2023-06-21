@@ -79,6 +79,7 @@ main {
 
 .feed-text {
     color: #e3d8d8;
+    word-break: break-all;
 }
 
 .date-text {
