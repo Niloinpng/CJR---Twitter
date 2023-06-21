@@ -1,6 +1,9 @@
 //  Arquivo de esquema do Prisma
 //  Documento: https://pris.ly/d/prisma-schema
 
+//npx prisma studio // abre no navegar o prisma studio
+
+//npx prisma migrate dev // aplicar alterações desse codigo 
 
 //  BASE
 generator client {
@@ -21,7 +24,10 @@ model Usuario{
   nome String
   genero String 
   data DateTime @default(now())
-  //imagem
+  cargo String 
+  nucleo Nucleo @relation(fields: [nucleoID], references: [id])
+  nucleoID Int 
+  imagem String? 
   //admin Boolean
   //posts Post[]
   //coments Coments[]
@@ -50,10 +56,9 @@ model Coments{
 
 //Cargo
 //Relação N:1 ainda não estabelecida
-model Cargo{
+model Nucleo{
   id Int @id @default(autoincrement())
-  nome String 
-  nucleo String 
+  nome String @unique
   created_at DateTime @default(now())
-  //useres User[]
+  useres Usuario[] 
 }

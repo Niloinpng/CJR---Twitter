@@ -1,11 +1,13 @@
 import express from "express";
-import usuarioRotas from "./usuario/usuario.rotas.js";
-import autentificacaoRotas from "./autentificação/autentificacao.rotas.js";
+import usuarioRotas from "./usuario/usuario.controll.js";
+import autentificacaoRotas from "./autentificação/autentificacao.controll.js";
+import nucleoRotas from "./nucleo/nucleo.controll.js";
 
 const app = express();
 app.use(express.json()); // Configurando express para ler JSON
 app.use(usuarioRotas);
 app.use(autentificacaoRotas);
+app.use(nucleoRotas);
 
 
 //  Iniciando o Servidor na porta 3000

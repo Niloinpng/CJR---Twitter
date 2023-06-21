@@ -277,20 +277,31 @@ form input[id=nomeini] {
 }
 
 form select[id=Idgenero] {
-    width: 45%;
+    display: block;
+    width: 50%;
     height: 30px;
     border: 2px solid var(--corbordas);
     padding-left: 10px;
     margin: 5px 0;
 }
 
-form input[id=cargoini] {
-    width: calc(100% - 35px);
+form select[id=nucleoini] {
+    width: calc(50% - 35px);
     height: 35px;
     border: 2px solid var(--corbordas);
     padding-left: 10px;
     margin: 5px 0;
     transform: translateX(35px);
+}
+
+form select[id=cargoini] {
+
+    width: 50%;
+    height: 35px;
+    border: 2px solid var(--corbordas);
+    padding-left: 10px;
+    margin: 5px 0;
+    float: right;
 }
 
 /* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */
