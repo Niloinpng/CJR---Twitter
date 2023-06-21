@@ -9,14 +9,14 @@ nav {
     justify-content: space-between;
     align-items: center;
     /*tres elementos acima centralizam componentes verticalmente na nav e cria espaço entre elementos*/
-    padding: 20px 80px;
+    padding: 1.5% 5%;
     background: #8BC34A;
 }
 
 #cjr-logo {
     background: #FFFFFF;
     border-radius: 12px;
-    padding: 2px 25px;
+    padding: 6% 35%;
 }
 
 .nav-content {
@@ -25,9 +25,9 @@ nav {
 
 .nav-content li {
     display: inline-block; /*faz os list items ficarem horizontais*/
-    font-size: 20px;
+    font-size: 100%;
     color: #222E50;
-    padding: 0px 60px;
+    padding: 6px 60px;
 }
 
 #entrar-conta {
