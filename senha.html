@@ -7,6 +7,7 @@
             <title>Recuperação de Senha</title>
             <link rel="icon" href="/images/cjr logo.svg">
             <link rel="stylesheet" href="senha.css">
+            <script src="senha.js"></script>
         </head>
     </head>
 
@@ -31,23 +32,24 @@
                             <label class="input-label" for="new password">Nova Senha</label><br>
                         </div>
                         <div class="margin-dist-f center">
-                            <input class="input-box" type="password" name="new password" placeholder="Digite a nova senha"><br>
+                            <input required class="input-box" id="pw" type="password" name="new password" placeholder="Digite a nova senha"><br>
                         </div>
                         <div class="margin-dist-f">
                             <label class="input-label" for="confirm new password">Confirme a Nova Senha</label><br>
                         </div>
                         <div class="margin-dist-f center">
-                            <input class="input-box" type="password" name="confirm new password" placeholder="Confirme a nova senha"><br>
+                            <input required class="input-box margin-dist-f" id="confirm-pw" type="password" name="confirm new password" placeholder="Confirme a nova senha"><br>
+                            <text class="err" id="erro-chars">Senha deve ter 8-250 caracteres!</text>
+                            <text class="err" id="erro-igual">Senhas devem ser iguais!</text>
                         </div>
                         <h6 class="acesse margin-dist-f center">Possui conta? <a class="acesse" href="/index.html">Acesse aqui!</a></h6>
                         <div class="margin-dist-f center">
-                            <input class="button-box" type="submit" value="Confirmar">
+                            <input id="button-box" type="submit" value="Confirmar" onclick="validatePw(event)">
                         </div>
                     </form>
                 </div>
             </div>
         </main>
-
     </body>
 
 </html>
