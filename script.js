@@ -5,6 +5,7 @@ var pasini = document.getElementById('pasini')
 var nomeini = document.getElementById('nomeini')
 var Idgenero = document.getElementById('Idgenero')
 var cargoini = document.getElementById('cargoini')
+var nucleoini = document.getElementById('nucleoini')
 //importa campo de registro por id
 var regis = document.getElementById('regini')
 //importa os textos por id
@@ -24,6 +25,7 @@ var busto = document.getElementById('bustoid')
 var martelo = document.getElementById('marteloid')
 //imgaem
 var loginimg = document.getElementById('loginimg')
+var imgini = document.getElementById('imgini')
 //variaveis nescessarias
 var botao = 'entrar'
 //cores
@@ -57,6 +59,10 @@ cargoini.addEventListener('focus', () => {
     cargoini.style.borderColor = cormedia
     martelo.style.borderColor = cormedia
 })
+nucleoini.addEventListener('focus', () => {
+    nucleoini.style.borderColor = cormedia
+    martelo.style.borderColor = cormedia
+})
 
 //retorna a outline do formulario quando sai do foco
 emini.addEventListener('blur', () => {
@@ -73,6 +79,8 @@ emini.addEventListener('blur', () => {
         enviarform.style.background = cormedia
         emerro2.style.display = 'none'
         loginimg.src = 'images/login.svg'
+        loginimg.style.display = 'block'
+        imgini.style.display = 'none'
         return
     } else if (!EmailValido(emini.value)) { // valida o email para mudar a cor da caixa
         emini.style.borderColor = corerro
@@ -80,6 +88,8 @@ emini.addEventListener('blur', () => {
         emerro.style.display = 'block'
         emerro2.style.display = 'none'
         loginimg.src = 'images/login.svg'
+        loginimg.style.display = 'block'
+        imgini.style.display = 'none'
         return
     } else {
         if (emini.value !== "teste@teste.teste") { // essa parte tem que ser mudada para quando tiver banco de dados
@@ -94,7 +104,8 @@ emini.addEventListener('blur', () => {
             carta.style.borderColor = corcerto
             emerro.style.display = 'none'
             emerro2.style.display = 'none'
-            loginimg.src = 'images/login.svg'
+            loginimg.style.display = 'none'
+            imgini.style.display = 'block'
         }
         else { //caso esteja ele deixa as cores padroes e o botão de entrar
             botao = 'entrar'
@@ -109,6 +120,8 @@ emini.addEventListener('blur', () => {
             emerro.style.display = 'none'
             emerro2.style.display = 'none'
             loginimg.src = 'Contas/'+emini.value+'/profile.jpg'
+            loginimg.style.display = 'block'
+            imgini.style.display = 'none'
         }
         return
     }
@@ -143,7 +156,7 @@ nomeini.addEventListener('blur', () => {
         busto.style.borderColor = corbordas
         nomerro.style.display = 'none'
         return
-    } else if (!tmvalido(nomeini.value, 5, 50)) {
+    } else if (!tmvalido(nomeini.value, 2, 50)) {
         nomeini.style.borderColor = corerro
         busto.style.borderColor = corerro
         nomerro.style.display = 'block'
@@ -157,29 +170,39 @@ nomeini.addEventListener('blur', () => {
 })
 
 Idgenero.addEventListener('blur', () => {
-    if (!Idgenero.value == "") {
+    if (Idgenero.value == '') {
+        Idgenero.style.borderColor = corerro
+        generro.style.display = 'block'
+        return
+    } else {
         Idgenero.style.borderColor = corcerto
         generro.style.display = 'none'
         return
-    } else {
-        Idgenero.style.borderColor = corerro
-        generro.style.display = 'inline'
     }
 })
 
 cargoini.addEventListener('blur', () => {
     if (cargoini.value == '') {
-        cargoini.style.borderColor = corbordas
-        martelo.style.borderColor = corbordas
-        carerro.style.display = 'none'
-        return
-    } else if (!tmvalido(cargoini.value, 2, 250)) {
         cargoini.style.borderColor = corerro
         martelo.style.borderColor = corerro
         carerro.style.display = 'block'
         return
     } else {
         cargoini.style.borderColor = corcerto
+        martelo.style.borderColor = corcerto
+        carerro.style.display = 'none'
+        return
+    }
+})
+
+nucleoini.addEventListener('blur', () => {
+    if (nucleoini.value == '') {
+        nucleoini.style.borderColor = corerro
+        martelo.style.borderColor = corerro
+        carerro.style.display = 'block'
+        return
+    } else {
+        nucleoini.style.borderColor = corcerto
         martelo.style.borderColor = corcerto
         carerro.style.display = 'none'
         return
@@ -218,7 +241,7 @@ abrirform.addEventListener('click', () => {
                 emerro.style.display = 'block'
                 cont = false
             }
-            if (!tmvalido(nomeini.value, 5, 50)) {
+            if (!tmvalido(nomeini.value, 2, 50)) {
                 nomeini.style.borderColor = corerro
                 busto.style.borderColor = corerro
                 nomerro.style.display = 'block'
@@ -226,17 +249,24 @@ abrirform.addEventListener('click', () => {
             }
             if (Idgenero.value == '') {
                 Idgenero.style.borderColor = corerro
+                generro.style.display = 'block'
                 cont = false
             }
-            if (!tmvalido(cargoini.value, 2, 250)) {
+            if (cargoini.value == '') {
                 cargoini.style.borderColor = corerro
                 martelo.style.borderColor = corerro
                 carerro.style.display = 'block'
                 cont = false
             }
+            if (nucleoini.value == '') {
+                nucleoini.style.borderColor = corerro
+                martelo.style.borderColor = corerro
+                carerro.style.display = 'block'
+                cont = false
+            }
             if (cont) {
-                regis.style.display = 'block'
-                formlogin.submit()
+                console.log(imgini.value)
+                alert('registrado')
             } else {
                 alert("Verifique o formulario")
             }
@@ -247,14 +277,24 @@ abrirform.addEventListener('click', () => {
 //Envia alerta de erro no fomulario
 formlogin.addEventListener("submit", (event) => {
     event.preventDefault()
-    if (botao == 'registrar'){ //ver se ta na tela de registro e invalida o botão submit
+    if (botao == 'registrar' || botao == 'registrando'){ //ver se ta na tela de registro e invalida o botão submit
         return
     }
-    if (!EmailValido(emini.value) || emini.value == "" || !tmvalido(pasini.value, 8, 250)) { // verifica se o email é invalido ou esta vazio para emitir um aviso 
+    if (!EmailValido(emini.value) || emini.value == "") { // verifica se o email é invalido ou esta vazio para emitir um aviso 
         alert("Verifique o formulario")
+        emini.style.borderColor = corerro
+        carta.style.borderColor = corerro
+        emerro.style.display = 'block'
         return
     }
-    formlogin.submit() // envia o formulario
+    if (!tmvalido(pasini.value, 8, 250)) { // verifica se a senha é invalida para emitir um aviso
+        alert("Verifique o formulario")
+        pasini.style.borderColor = corerro
+        cadeado.style.borderColor = corerro
+        senerro.style.display = 'block'
+        return
+    }
+    alert('logado') // envia o formulario
 })
 
 //Valida o email
@@ -278,31 +318,29 @@ function tmvalido(value, minimo, maximo) { // valida a senha de acordo com o tam
     return false
 }
 
-const inputFile = document.querySelector("#picture__input");
-const pictureImage = document.querySelector(".picture__image");
-const pictureImageTxt = "Choose an image";
-pictureImage.innerHTML = pictureImageTxt;
+const inputFile = document.querySelector("#picture__input")
+const pictureImage = document.querySelector(".picture__image")
 
 inputFile.addEventListener("change", function (e) {
   const inputTarget = e.target;
-  const file = inputTarget.files[0];
+  const file = inputTarget.files[0]
 
   if (file) {
-    const reader = new FileReader();
+    const reader = new FileReader()
 
     reader.addEventListener("load", function (e) {
-      const readerTarget = e.target;
+      const readerTarget = e.target
 
-      const img = document.createElement("img");
+      const img = document.createElement("img")
       img.src = readerTarget.result;
-      img.classList.add("picture__img");
+      img.classList.add("picture__img")
 
-      pictureImage.innerHTML = "";
-      pictureImage.appendChild(img);
+      pictureImage.innerHTML = ""
+      pictureImage.appendChild(img)
     });
 
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(file)
   } else {
-    pictureImage.innerHTML = pictureImageTxt;
+    pictureImage.innerHTML = pictureImageTxt
   }
-});
+})
