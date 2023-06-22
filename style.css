@@ -277,7 +277,7 @@ form input[id=nomeini] {
 }
 
 form select[id=Idgenero] {
-    display: block;
+    display: flex;
     width: 50%;
     height: 30px;
     border: 2px solid var(--corbordas);
@@ -295,7 +295,6 @@ form select[id=nucleoini] {
 }
 
 form select[id=cargoini] {
-
     width: 50%;
     height: 35px;
     border: 2px solid var(--corbordas);
@@ -340,8 +339,7 @@ form text[id=generro] {
     display: none;
     text-decoration: underline;
     color: var(--corerro);
-    text-align: center;
-    transform: translatey(50%);
+    text-align:justify;
 }
 
 form text[id=carerro] {
@@ -353,8 +351,8 @@ form text[id=carerro] {
 
 /* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */
 
-form input[id=emini]:focus, form input[id=pasini]:focus,
-form input[id=nomeini]:focus, form input[id=cargoini], form select[id=Idgenero]:focus {
+form input[id=emini]:focus, form input[id=pasini]:focus, form input[id=nomeini]:focus, 
+form select[id=nucleoini]:focus, form select[id=cargoini]:focus, form select[id=Idgenero]:focus {
     outline: none;
 }
 

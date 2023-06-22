@@ -5,6 +5,7 @@ var pasini = document.getElementById('pasini')
 var nomeini = document.getElementById('nomeini')
 var Idgenero = document.getElementById('Idgenero')
 var cargoini = document.getElementById('cargoini')
+var nucleoini = document.getElementById('nucleoini')
 //importa campo de registro por id
 var regis = document.getElementById('regini')
 //importa os textos por id
@@ -56,6 +57,10 @@ Idgenero.addEventListener('focus', () => {
 })
 cargoini.addEventListener('focus', () => {
     cargoini.style.borderColor = cormedia
+    martelo.style.borderColor = cormedia
+})
+nucleoini.addEventListener('focus', () => {
+    nucleoini.style.borderColor = cormedia
     martelo.style.borderColor = cormedia
 })
 
@@ -165,29 +170,39 @@ nomeini.addEventListener('blur', () => {
 })
 
 Idgenero.addEventListener('blur', () => {
-    if (!Idgenero.value == "") {
+    if (Idgenero.value == '') {
+        Idgenero.style.borderColor = corerro
+        generro.style.display = 'block'
+        return
+    } else {
         Idgenero.style.borderColor = corcerto
         generro.style.display = 'none'
         return
-    } else {
-        Idgenero.style.borderColor = corerro
-        generro.style.display = 'inline'
     }
 })
 
 cargoini.addEventListener('blur', () => {
     if (cargoini.value == '') {
-        cargoini.style.borderColor = corbordas
-        martelo.style.borderColor = corbordas
-        carerro.style.display = 'none'
-        return
-    } else if (!tmvalido(cargoini.value, 2, 250)) {
         cargoini.style.borderColor = corerro
         martelo.style.borderColor = corerro
         carerro.style.display = 'block'
         return
     } else {
         cargoini.style.borderColor = corcerto
+        martelo.style.borderColor = corcerto
+        carerro.style.display = 'none'
+        return
+    }
+})
+
+nucleoini.addEventListener('blur', () => {
+    if (nucleoini.value == '') {
+        nucleoini.style.borderColor = corerro
+        martelo.style.borderColor = corerro
+        carerro.style.display = 'block'
+        return
+    } else {
+        nucleoini.style.borderColor = corcerto
         martelo.style.borderColor = corcerto
         carerro.style.display = 'none'
         return
@@ -234,10 +249,17 @@ abrirform.addEventListener('click', () => {
             }
             if (Idgenero.value == '') {
                 Idgenero.style.borderColor = corerro
+                generro.style.display = 'block'
                 cont = false
             }
-            if (!tmvalido(cargoini.value, 2, 250)) {
+            if (cargoini.value == '') {
                 cargoini.style.borderColor = corerro
+                martelo.style.borderColor = corerro
+                carerro.style.display = 'block'
+                cont = false
+            }
+            if (nucleoini.value == '') {
+                nucleoini.style.borderColor = corerro
                 martelo.style.borderColor = corerro
                 carerro.style.display = 'block'
                 cont = false
@@ -255,11 +277,21 @@ abrirform.addEventListener('click', () => {
 //Envia alerta de erro no fomulario
 formlogin.addEventListener("submit", (event) => {
     event.preventDefault()
-    if (botao == 'registrar'){ //ver se ta na tela de registro e invalida o botão submit
+    if (botao == 'registrar' || botao == 'registrando'){ //ver se ta na tela de registro e invalida o botão submit
         return
     }
-    if (!EmailValido(emini.value) || emini.value == "" || !tmvalido(pasini.value, 8, 250)) { // verifica se o email é invalido ou esta vazio para emitir um aviso 
+    if (!EmailValido(emini.value) || emini.value == "") { // verifica se o email é invalido ou esta vazio para emitir um aviso 
         alert("Verifique o formulario")
+        emini.style.borderColor = corerro
+        carta.style.borderColor = corerro
+        emerro.style.display = 'block'
+        return
+    }
+    if (!tmvalido(pasini.value, 8, 250)) { // verifica se a senha é invalida para emitir um aviso
+        alert("Verifique o formulario")
+        pasini.style.borderColor = corerro
+        cadeado.style.borderColor = corerro
+        senerro.style.display = 'block'
         return
     }
     alert('logado') // envia o formulario
