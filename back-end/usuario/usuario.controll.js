@@ -5,7 +5,7 @@ const usuarioRotas = Router();
 const usuario = new Usuario();
 
 usuarioRotas.post("/usuario", async (eviado,resposta) => {
-    const{email,senha,nome,genero,cargo,nucleo,imagem,} = eviado.body;
+    const{email,senha,nome,genero,cargo,nucleo,imagem} = eviado.body;
     try{
         const novoUsuario = await usuario.criarUsuario(email,senha,nome,genero,cargo,nucleo,imagem);
         resposta.status(200).json(novoUsuario);

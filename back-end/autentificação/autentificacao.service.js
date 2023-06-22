@@ -12,8 +12,8 @@ class Autentificação{
         return{token};
     }
 
-    async cadastro(email,senha,nome,genero,imagem){
-        const novoUsuario = await usuario.criarUsuario(email,senha,nome,genero,imagem);
+    async cadastro(email,senha,nome,genero,cargo,nucleo,imagem){
+        const novoUsuario = await usuario.criarUsuario(email,senha,nome,genero,cargo,nucleo,imagem);
         return novoUsuario;
     }
 }

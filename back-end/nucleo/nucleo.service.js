@@ -3,7 +3,7 @@ const prisma = new PrismaClient();
 
 class Nucleo{
 
-    async criarNucleo(nome,nucleo){
+    async criarNucleo(nome){
         return await prisma.nucleo.create({
             data: {
                 nome

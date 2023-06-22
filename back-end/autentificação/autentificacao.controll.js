@@ -16,9 +16,9 @@ autentificacaoRotas.post("/entrar", async (enviado,resposta) => {
 })
 
 autentificacaoRotas.post("/cadastro", async(enviado,resposta) => {
-    const{email,senha,nome,genero,imagem} = enviado.body;
+    const{email,senha,nome,genero,cargo,nucleo,imagem} = enviado.body;
     try{
-        const novoUsuario = await autentificacao.cadastro(email,senha,nome,genero,imagem);
+        const novoUsuario = await autentificacao.cadastro(email,senha,nome,genero,cargo,nucleo,imagem);
         resposta.status(200).json(novoUsuario);
     }catch(e){
         resposta.status(400).json({message: e.message});
