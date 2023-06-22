@@ -31,14 +31,15 @@
                             <label class="input-label" for="new password">Nova Senha</label><br>
                         </div>
                         <div class="margin-dist-f center">
-                            <input class="input-box" type="password" name="new password" placeholder="Digite a nova senha"><br>
+                            <input id="password-input" required class="input-box" type="password" name="new password" placeholder="Digite a nova senha"><br>
                         </div>
                         <div class="margin-dist-f">
                             <label class="input-label" for="confirm new password">Confirme a Nova Senha</label><br>
                         </div>
                         <div class="margin-dist-f center">
-                            <input class="input-box" type="password" name="confirm new password" placeholder="Confirme a nova senha"><br>
+                            <input id="confirm-password-input" required class="input-box" type="password" name="confirm new password" placeholder="Confirme a nova senha"><br>
                         </div>
+                        <text id="different-passwords">Digite senhas iguais</text>
                         <h6 class="acesse margin-dist-f center">Possui conta? <a class="acesse" href="/index.html">Acesse aqui!</a></h6>
                         <div class="margin-dist-f center">
                             <input class="button-box" type="submit" value="Confirmar">
@@ -47,7 +48,8 @@
                 </div>
             </div>
         </main>
-
     </body>
+
+    <script src="senha.js"></script>
 
 </html>

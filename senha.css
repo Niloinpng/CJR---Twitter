@@ -116,6 +116,13 @@ main {
     background: #daecc6;
 }
 
+form text[id=different-passwords] {
+    position: relative;
+    display: none;
+    text-align: center;
+    text-decoration: underline;
+}
+
 .acesse {
     color: #182037;
     font-weight: bold;
