@@ -1,7 +1,19 @@
+:root {
+    --formulario: #fff;
+    --cordclara: #fff;
+    --corclara: #a15;
+    --cormedia: #803;
+    --corescura: #601;
+    --corbordas: #ccc;
+    --corerro: #a00;
+    --corcerto: #0a0;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: Border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 nav {
@@ -10,11 +22,11 @@ nav {
     align-items: center;
     /*tres elementos acima centralizam componentes verticalmente na nav e cria espaço entre elementos*/
     padding: 1.5% 5%;
-    background: #8BC34A;
+    background: var(--corclara);
 }
 
 #cjr-logo {
-    background: #FFFFFF;
+    background: var(--cordclara);
     border-radius: 12px;
     padding: 6% 35%;
 }
@@ -26,13 +38,14 @@ nav {
 .nav-content li {
     display: inline-block; /*faz os list items ficarem horizontais*/
     font-size: 100%;
-    color: #222E50;
+    font-weight: bold;
+    color: var(--cordclara);
     padding: 6px 60px;
 }
 
 #entrar-conta {
-    background: #222E50;
-    color: #FFFFFF;
+    background: var(--cordclara);
+    color: var(--corclara);
     border-radius: 12px;
     padding: 10px 20px; /*cria caixinha envolta do componente de entrar*/
 }
