@@ -55,25 +55,25 @@ const form = () => {
       e.preventDefault();
 
       const body = {
-        input1: state.emailInput,
-        input2: state.senhaInput,
-        input3: state.nomeInput,
-        input4: state.generoInput,
-        input5: state.cargoInput,
-        input6: state.nucleoInput,
+        email: state.emailInput,
+        senha: state.senhaInput,
+        nome: state.nomeInput,
+        genero: state.generoInput,
+        cargo: state.cargoInput,
+        nucleo: state.nucleoInput,
       };
 
       console.log(body);
 
-      const res = await fetch("/back-end/autentificacao.cntroll.js", {
+      const res = await fetch("http://localhost:3000/cadastro", {
         method: "post", 
-        headers: {},
+        headers: {"Content-type": "application/json"},
         body: JSON.stringify(body),
       });
     });
   };
 
-  return setEventHandlers;
+  return {setEventHandlers};
 };
 
 form().setEventHandlers();
