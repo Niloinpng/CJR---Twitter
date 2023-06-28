@@ -1,11 +1,11 @@
 :root {
-    --formulario: #fff;
-    --cordclara: #fff;
-    --corextraclara: rgb(194, 121, 154);
-    --corclara: #a15;
-    --cormedia: #803;
-    --corescura: #601;
-    --corbordas: #ccc;
+    --fontColorDark: #05445E;
+    --fontColorLight: #E4F4F3;
+    --corextraclara: #A1DBF1;
+    --corclara: #71D5E4;
+    --cormedia: #00B6BC;
+    --corescura: #29A0B1;
+    --corextraescura: #05445E;
     --corerro: #a00;
     --corcerto: #0a0;
 }
@@ -23,11 +23,11 @@ nav {
     align-items: center;
     /*tres elementos acima centralizam componentes verticalmente na nav e cria espaço entre elementos*/
     padding: 1.5% 5%;
-    background: var(--cormedia);
+    background: var(--corescura);
 }
 
 #cjr-logo {
-    background: var(--cordclara);
+    background: var(--fontColorLight);
     border-radius: 12px;
     padding: 6% 35%;
 }
@@ -40,26 +40,26 @@ nav {
     display: inline-block; /*faz os list items ficarem horizontais*/
     font-size: 100%;
     font-weight: bold;
-    color: var(--cordclara);
+    color: var(--fontColorLight);
     padding: 6px 60px;
 }
 
 #entrar-conta {
-    background: var(--cordclara);
-    color: var(--corclara);
+    background: var(--fontColorLight);
+    color: var(--corescura);
     border-radius: 12px;
     padding: 10px 20px; /*cria caixinha envolta do componente de entrar*/
 }
 
 /*hover faz a mudança de cor ao passar o mouse*/
 #criar-conta:hover {
-    color: var(--corescura);
+    color: var(--corextraescura);
     transition: all 700ms ease-in-out;
 }
 
 #entrar-conta:hover {
-    color: var(--cordclara);
-    background: var(--corescura);
+    color: var(--fontColorLight);
+    background: var(--corextraescura);
     transition: all 700ms ease-in-out;
 }
 
@@ -69,12 +69,12 @@ main {
     align-items: center;
     /*centraliza elements na main e insere espaço entre eles*/
     padding: 50px 2px;
-    background: var(--corclara);
+    background: var(--corextraclara);
 }
 
 #cjr-big-logo {
     width: 35%;
-    background: var(--cordclara);
+    background: var(--fontColorLight);
     padding: 2% 4%;
     border-radius: 12px;
 }
@@ -84,7 +84,7 @@ main {
 }
 
 .recup-box {
-    background: var(--cordclara);
+    background: var(--fontColorLight);
     width: 32%;
     height: 60%;
     border-radius: 12px;
@@ -102,7 +102,7 @@ main {
     /*margin especifica espaçamento entre elementos dentro do box de recup-box*/
     margin-top: 4%;
     margin-bottom: 10%;
-    color: var(--corescura);
+    color: var(--fontColorDark);
 }
 
 .margin-dist-f {
@@ -114,7 +114,7 @@ main {
 }
 
 .input-label {
-    color: var(--corescura);
+    color: var(--fontColorDark);
     font-size: medium;
 }
 
@@ -123,16 +123,22 @@ main {
     width: 100%;
     height: 50px;
     border-style: solid;
-    border-color: var(--corbordas);
+    border-color: var(--corescura);
+    background: var(--corextraclara);
     outline: none;
     padding-left: 10%;
+    padding-right: 10%;
     font-size: small;
 }
 
 /*especifica mudança ao clicar nos inputs*/
 .input-box:focus {
-    background: var(--corextraclara);
-    border-color: var(--corescura);
+    background: var(--corclara);
+    border-color: var(--corextraescura);
+}
+
+::placeholder {
+    color: var(--fontColorDark);
 }
 
 .err {
@@ -143,14 +149,9 @@ main {
 }
 
 .acesse {
-    color: var(--cormedia);
+    color: var(--fontColorDark);
     font-weight: bold;
     font-size: small;
-}
-
-#acesse:hover {
-    color: var(--corescura);
-    transition: all 700ms ease-in-out;
 }
 
 #button-box {
@@ -160,11 +161,11 @@ main {
     border-style: solid;
     border-color: var(--corescura);
     font-size: small;
-    color: var(--corescura);
     background: var(--corextraclara);
 }
 
 #button-box:hover {
-    background: var(--cordclara);
+    background: var(--corclara);
+    border-color: var(--corextraescura);
     transition: all 700ms ease-in-out;
 }
