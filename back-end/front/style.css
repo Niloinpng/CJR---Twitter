@@ -204,6 +204,7 @@ form img[id=loginimg] {
     margin: 0;
     padding: 0;
     box-sizing: Border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -230,7 +231,6 @@ form h3 {
     font-size: 200%; /* Tamanho da fonte */
     text-align: center; /* Posicão do texto */
     color: var(--cormedia);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */
@@ -251,6 +251,22 @@ form input[id=pasini] {
     padding-left: 10px;
     margin: 5px 0;
     transform: translateX(35px);
+}
+
+form input[id=checkSen] {
+    display: inline;
+    height: 17px;
+    width: 17px;
+    transform: translateY(3px);
+}
+
+form label[for=checkSen] {
+    font-weight: bold;
+    font-size: small;
+}
+
+form input[type="password"] {
+    -webkit-text-security: disc;
 }
 
 /* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */
@@ -347,6 +363,28 @@ form text[id=carerro] {
     text-align: center;
     text-decoration: underline;
     color: var(--corerro);
+}
+
+form text[id=esqueci] {
+    display: none;
+    text-align: center;
+    text-decoration: underline;
+    color: var(--corerro);
+}
+
+form text[id=imgerro] {
+    display: none;
+    text-align: center;
+    text-decoration: underline;
+    color: var(--corerro);
+}
+
+form a[id=esqueci2] {
+    display: none;
+    text-align: center;
+    text-decoration: underline;
+    color: var(--corerro);
+    cursor: pointer;
 }
 
 /* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */

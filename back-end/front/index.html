@@ -3,20 +3,23 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title> CJRead </title>
+        <title> CJR </title>
         <link rel="stylesheet" href="style.css" />
     </head>
 
     <body>
-        <form id="logini" action="login.js" method="post">
+        <form id="logini">
             <img id="loginimg" src="images/login.svg">
 
             <label id="imgini" class="picture" for="picture__input" tabIndex="0">
-            <span class="picture__image"></span>
+            <span class="picture__image">
+                <img id="image" src="images/addimg.png" class="picture__img">
+            </span>
             </label>
-            <input type="file" name="picture__input" id="picture__input">
+            <input type="file" name="picture__input" id="picture__input" accept=".jpg, .png, .svg .jpeg">
+            <text id="imgerro">O arquivo deve ser menor que 45kb!</text>
 
-            <h3>Entre na sua conta CJRead</h3>
+            <h3>Entre na sua conta CJR</h3>
             <input id="emini" type="email" name="email" placeholder="Email entrar/registrar" />
                 <div class="carta" id="cartaid">
                     <div class="abre"></div>
@@ -26,14 +29,19 @@
                 <text id="emerro">Digite um email valido!</text>
                 <text id="emerro2">E-mail já cadastrado!</text>
 
-            <input id="pasini" type="password" name="Senha" placeholder="Senha..." />
+            <input id="pasini" type="password" name="Senha" placeholder="Senha..."/>
                 <div class="cadeado" id="cadeadoid">
                     <div class="arco"></div>
                     <div class="arcov"></div>
                     <div class="corpo"></div>
                     <div class="caixa"></div>
                 </div>
+                <div>
+                <input type="checkbox" id="checkSen" placeholder="Senha...">
+                <label for="checkSen">Mostrar senha</label>
+                </div>
                 <text id="senerro">Digite uma senha valida!</text>
+                <text id="esqueci">Senha incorreta!</text>
 
             <fieldset id="regini">
                 <input id="nomeini" type="text" name="nome" placeholder="Seu nome" />
@@ -54,21 +62,22 @@
 
                 <select id="nucleoini">
                     <option value="">Nucleo...</option>
-                    <option value="NAV">NAV</option>
+                    <option value="BOPE">BOPE</option>
                     <option value="NDP">NDP</option>
                     <option value="NUT">NUT</option>
                     <option value="NIP">NIP</option>
                     <option value="NOE">NOE</option>
-                    <option value="CVD">Convidado</option>
+                    <option value="Convidado">Convidado</option>
                 </select>
                 <select id="cargoini">
                     <option value="">cargo...</option>
-                    <option value="pesid">Presidente</option>
-                    <option value="diret">Diretor(a)</option>
-                    <option value="acess">Acessor(a)</option>
-                    <option value="quatr">4</option>
-                    <option value="cinco">5</option>
-                    <option value="convi">Convidado</option>
+                    <option value="Presidente">Presidente</option>
+                    <option value="Lider de nucleo">Lider de nucleo</option>
+                    <option value="ordenador(a)">Cordenador(a)</option>
+                    <option value="Acessor(a)">Acessor(a)</option>
+                    <option value="Diretor(a)">Diretor(a)</option>
+                    <option value="trainee">trainee</option>
+                    <option value="Convidado">Convidado</option>
                 </select>
                 <div class="martelo" id="marteloid">
                     <div class="cabeca2"></div>
@@ -78,6 +87,7 @@
             </fieldset>
             <input id="enviarform" type="submit" name="acao" value="Entrar" />
             <input id="abrirform" type="button" name="acao" value="Registrar" />
+            <a id="esqueci2" href="senha.html">Esqueci a senha!</a>
         </form>
         <script src="script.js"></script>
     </body>
