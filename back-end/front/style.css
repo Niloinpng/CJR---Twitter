@@ -253,14 +253,14 @@ form input[id=pasini] {
     transform: translateX(35px);
 }
 
-form input[id=mostrarSenha] {
+form input[id=checkSen] {
     display: inline;
     height: 17px;
     width: 17px;
     transform: translateY(3px);
 }
 
-form label[for=mostrarSenha] {
+form label[for=checkSen] {
     font-weight: bold;
     font-size: small;
 }

@@ -44,10 +44,10 @@ console.log(time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds())
 
 //Visibilidade da senha
 
-const mostrarSenhaCheckbox = document.getElementById('mostrarSenha');
+const SenhaCheckbox = document.getElementById('checkSen');
 
-mostrarSenhaCheckbox.addEventListener('change', function() {
-    if (mostrarSenhaCheckbox.checked) {
+SenhaCheckbox.addEventListener('change', function() {
+    if (SenhaCheckbox.checked) {
         pasini.type = 'text';
     } else {
         pasini.type = 'password';
