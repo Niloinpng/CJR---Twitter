@@ -15,6 +15,9 @@ var senerro = document.getElementById('senerro')
 var nomerro = document.getElementById('nomerro')
 var generro = document.getElementById('generro')
 var carerro = document.getElementById('carerro')
+var esqueci = document.getElementById('esqueci')
+var esqueci2 = document.getElementById('esqueci2')
+var imgerro = document.getElementById('imgerro')
 //importa os botões por id
 var abrirform = document.getElementById('abrirform')
 var enviarform = document.getElementById('enviarform')
@@ -38,6 +41,18 @@ var corerro = '#a00'
 var corcerto = '#0a0'
 
 console.log(time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds())
+
+//Visibilidade da senha
+
+const SenhaCheckbox = document.getElementById('checkSen');
+
+SenhaCheckbox.addEventListener('change', function() {
+    if (SenhaCheckbox.checked) {
+        pasini.type = 'text';
+    } else {
+        pasini.type = 'password';
+    }
+});
 
 //Muda a outline do formulario quando esta no foco
 emini.addEventListener('focus', () => {
@@ -132,21 +147,25 @@ pasini.addEventListener('blur', () => { //blur da senha #vai ser alterado
         pasini.style.borderColor = corbordas
         cadeado.style.borderColor = corbordas
         senerro.style.display = 'none'
+        esqueci.style.display = 'none'
         return
     } else if (!tmvalido(pasini.value, 8, 250)) { // verifica se a senha é invalida para emitir um aviso 
         pasini.style.borderColor = corerro
         cadeado.style.borderColor = corerro
         senerro.style.display = 'block'
+        esqueci.style.display = 'none'
         return
     } else if (tmvalido(pasini.value, 8, 250) && (botao === 'registrar' || botao == 'registrando')) {
         pasini.style.borderColor = corcerto
         cadeado.style.borderColor = corcerto
         senerro.style.display = 'none'
+        esqueci.style.display = 'none'
         return
     } else {
         pasini.style.borderColor = corbordas
         cadeado.style.borderColor = corbordas
         senerro.style.display = 'none'
+        esqueci.style.display = 'none'
     }
 })
 
@@ -265,7 +284,7 @@ abrirform.addEventListener('click', () => {
                 cont = false
             }
             if (cont) {
-                console.log(imgini.value)
+                console.log(pictureImage)
                 alert('registrado')
             } else {
                 alert("Verifique o formulario")
@@ -292,6 +311,12 @@ formlogin.addEventListener("submit", (event) => {
         pasini.style.borderColor = corerro
         cadeado.style.borderColor = corerro
         senerro.style.display = 'block'
+        return
+    } else if (esqueci.value != '12345678') {
+        pasini.style.borderColor = corerro
+        cadeado.style.borderColor = corerro
+        esqueci.style.display = 'block'
+        esqueci2.style.display = 'block'
         return
     }
     alert('logado') // envia o formulario
@@ -326,20 +351,26 @@ inputFile.addEventListener("change", function (e) {
   const file = inputTarget.files[0]
 
   if (file) {
-    const reader = new FileReader()
+    if (file.size <= 45000){
+        imgerro.style.display = 'none'
+        const reader = new FileReader()
 
-    reader.addEventListener("load", function (e) {
-      const readerTarget = e.target
+        reader.addEventListener("load", function (e) {
+            const readerTarget = e.target
+            
+            const img = document.createElement("img")
+            img.src = readerTarget.result;
+            img.classList.add("picture__img")
+            
+            pictureImage.innerHTML = ""
+            pictureImage.appendChild(img)
+        });
 
-      const img = document.createElement("img")
-      img.src = readerTarget.result;
-      img.classList.add("picture__img")
-
-      pictureImage.innerHTML = ""
-      pictureImage.appendChild(img)
-    });
-
-    reader.readAsDataURL(file)
+        reader.readAsDataURL(file)
+    } else {
+        imgerro.style.display = 'Block'
+        return
+    }
   } else {
     pictureImage.innerHTML = pictureImageTxt
   }
