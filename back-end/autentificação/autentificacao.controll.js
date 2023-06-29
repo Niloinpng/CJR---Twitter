@@ -16,13 +16,10 @@ autentificacaoRotas.post("/entrar", async (enviado,resposta) => {
 })
 
 autentificacaoRotas.post("/cadastro", async(enviado,resposta) => {
-    console.log("Entrou na rota cadastro")
-    console.log(enviado)
-    const{email,senha,nome,genero,cargo,nucleo} = enviado.body;
-    console.log(email)
+    console.log("Entrou no cadastro controll")
+    const{email,senha,nome,genero,imagem,cargo,nucleo} = enviado.body;
     try{
-        console.log("Tentou criar")
-        const novoUsuario = await autentificacao.cadastro(email,senha,nome,genero,cargo,nucleo);
+        const novoUsuario = await autentificacao.cadastro(email,senha,nome,genero,imagem,cargo,nucleo);
         resposta.status(200).json(novoUsuario);
     }catch(e){
         resposta.status(400).json({message: e.message});

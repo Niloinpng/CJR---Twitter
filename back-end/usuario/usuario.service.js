@@ -3,25 +3,45 @@ const prisma = new PrismaClient();
 
 class Usuario{
 
-    async criarUsuario(email,senha,nome,genero,cargo,nucleo){
-        console.log(email,senha,nome,genero,cargo,nucleo)
-        return await prisma.usuario.create({
-            data: {
+    async criarUsuario(email,senha,nome,genero,imagem,cargo,nucleo){
+        try {
+            const nucleoExistente = await prisma.nucleo.findUnique({
+              where: { nome: nucleo },
+            });
+      
+            let nucleoId;
+      
+            if (!nucleoExistente) {
+              const novoNucleo = await prisma.nucleo.create({
+                data: {
+                  nome: nucleo,
+                },
+              });
+      
+              nucleoId = novoNucleo.id;
+            } else {
+              nucleoId = nucleoExistente.id;
+            }
+      
+            return await prisma.usuario.create({
+              data: {
                 email,
                 senha,
                 nome,
                 genero,
+                imagem,
                 cargo,
                 nucleo: {
-                    connect: {nome: nucleo}
-                }
-            }
-        }).catch(e => {
-            //console.log(e)
-            if(e.code == "P2002") throw new Error("Email já cadastrado");
+                  connect: { id: nucleoId },
+                },
+              },
+            });
+          } catch (e) {
+            console.log(e);
+            if (e.code === "P2002") throw new Error("Email já cadastrado");
             throw e;
-        })
-    }
+          }
+        }
 
     async procuraUsuarios(){
         return await prisma.usuario.findMany();

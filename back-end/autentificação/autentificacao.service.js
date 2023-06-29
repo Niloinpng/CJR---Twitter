@@ -12,9 +12,9 @@ class Autentificação{
         return{token};
     }
 
-    async cadastro(email,senha,nome,genero,cargo,nucleo){
-        console.log("Entrou no cadastro")
-        const novoUsuario = await usuario.criarUsuario(email,senha,nome,genero,cargo,nucleo);
+    async cadastro(email,senha,nome,genero,imagem,cargo,nucleo){
+        console.log("Entrou no cadastro service")
+        const novoUsuario = await usuario.criarUsuario(email,senha,nome,genero,imagem,cargo,nucleo);
         return novoUsuario;
     }
 }
