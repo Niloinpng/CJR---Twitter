@@ -1,0 +1,75 @@
+:root {
+    --fontColorDark: #05445E;
+    --fontColorLight: #E4F4F3;
+    --corextraclara: #A1DBF1;
+    --corclara: #71D5E4;
+    --cormedia: #00B6BC;
+    --corescura: #29A0B1;
+    --corextraescura: #05445E;
+    --corerro: #a00;
+    --corcerto: #0a0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: Border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*tres elementos acima centralizam componentes verticalmente na nav e cria espaço entre elementos*/
+    padding: 1.5% 5%;
+    background: var(--corescura);
+}
+
+#cjr-logo {
+    background: var(--fontColorLight);
+    border-radius: 12px;
+    padding: 6% 35%;
+}
+
+.nav-content {
+    list-style-type: none;  /*tira bullets da lista*/
+}
+
+.nav-content li {
+    display: inline-block; /*faz os list items ficarem horizontais*/
+    font-size: 100%;
+    font-weight: bold;
+    color: var(--fontColorLight);
+    padding: 6px 60px;
+}
+
+#entrar-conta {
+    background: var(--fontColorLight);
+    color: var(--corescura);
+    border-radius: 12px;
+    padding: 10px 20px; /*cria caixinha envolta do componente de entrar*/
+}
+
+/*hover faz a mudança de cor ao passar o mouse*/
+#criar-conta:hover {
+    color: var(--corextraescura);
+    transition: all 700ms ease-in-out;
+}
+
+#entrar-conta:hover {
+    color: var(--fontColorLight);
+    background: var(--corextraescura);
+    transition: all 700ms ease-in-out;
+}
+
+main {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /*centraliza elements na main e insere espaço entre eles*/
+    padding: 50px 2px;
+    background: var(--corextraclara);
+}
+
+

@@ -2,7 +2,7 @@ import express from "express";
 import usuarioRotas from "./usuario/usuario.controll.js";
 import autentificacaoRotas from "./autentificação/autentificacao.controll.js";
 import nucleoRotas from "./nucleo/nucleo.controll.js";
-
+import postRotas from "./post/post.controll.js";
 
 
 const app = express();
@@ -10,6 +10,7 @@ app.use(express.json()); // Configurando express para ler JSON
 app.use(usuarioRotas);
 app.use(autentificacaoRotas);
 app.use(nucleoRotas);
+app.use(postRotas);
 app.use(express.static("front"))
 
 //  Iniciando o Servidor na porta 3000
