@@ -1,0 +1,23 @@
+.perfil {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f1f1f1;
+}
+  
+.dados-usuario {
+    margin-bottom: 20px;
+}
+  
+.publicacoes {
+    margin-top: 20px;
+ }
+  
+  .publicacoes h2 {
+    margin-bottom: 10px;
+  }
+  
+  #lista-publicacoes li {
+    margin-bottom: 5px;
+  }
+  

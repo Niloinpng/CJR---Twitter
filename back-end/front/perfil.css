@@ -64,7 +64,6 @@ nav {
 }
 
 main {
-    display: flex;
     justify-content: space-evenly;
     align-items: center;
     /*centraliza elements na main e insere espaço entre eles*/
@@ -72,4 +71,7 @@ main {
     background: var(--corextraclara);
 }
 
-
+.Perfil {
+    text-align: center;
+    background-color: #29A0B1;
+}
