@@ -8,11 +8,40 @@ async function procuraemail (Email){
     return response.json()
 }
 
+async function procuraimagem (Email){
+    const response = await fetch("http://localhost:3000/imagem", {
+            method: "post", 
+            headers: {"Content-type": "application/json"},
+            body: JSON.stringify({email : Email}),
+
+    })
+    return response.json()
+}
+
 async function entrar (Email,Senha){
     const response = await fetch("http://localhost:3000/entrar", {
         method: "post",
         headers: {"Content-type": "application/json"},
         body: JSON.stringify({email: Email, senha: Senha})
+    })
+    return response.json()
+}
+
+async function cadastrar (Email,Senha,Nome,Genero,Cargo,Nucleo,Imagem){
+    const response = await fetch("http://localhost:3000/cadastro", {
+        method: "post",
+        headers: {"Content-type": "application/json"},
+        body: JSON.stringify(
+            {
+                email: Email, 
+                senha: Senha, 
+                nome: Nome, 
+                genero: Genero,
+                cargo: Cargo,
+                nucleo: Nucleo,
+                imagem: Imagem
+            }
+        )
     })
     return response.json()
 }
@@ -126,11 +155,7 @@ emini.addEventListener('blur', async () => {
         imgini.style.display = 'none'
         return
     } else {
-        const body = await procuraemail(emini.value)
-        console.log(body)
-        if(!body){
-        //if(procuraemail(emini.value)){
-        //if (emini.value !== "teste@teste.teste") { // essa parte tem que ser mudada para quando tiver banco de dados
+        if(!await procuraemail(emini.value)){
             botao = 'registrar'                    // para verificar se o email ja esta cadastrado
             abrirform.style.width = '84%'          // caso não esteja ele muda a cor da caixa e os botões
             abrirform.style.cursor = 'pointer'
@@ -157,9 +182,12 @@ emini.addEventListener('blur', async () => {
             carta.style.borderColor = corbordas
             emerro.style.display = 'none'
             emerro2.style.display = 'none'
-            loginimg.src = 'Contas/'+emini.value+'/profile.jpg'
-            loginimg.style.display = 'block'
-            imgini.style.display = 'none'
+            let imagem = await procuraimagem(emini.value);
+            if (imagem) { // existe imagem cadastrada pelo user
+                loginimg.src = imagem
+                loginimg.style.display = 'block'
+                imgini.style.display = 'none'
+            }   
         }
         return
     }
@@ -254,16 +282,11 @@ nucleoini.addEventListener('blur', () => {
 const formlogin = document.getElementById('logini');
 
 abrirform.addEventListener('click', async () => {
-    const body = await procuraemail(emini.value)
-    console.log(body)
-    if(body){
-    //if(procuraemail(emini.value)){
-    //if(usuario.procuraPorEmail(emini.value)){
-    //if (emini.value == 'teste@teste.teste') { // if(!email) email já cadastrado 
+    if(await procuraemail(emini.value)){ // existe o email no bd
         emini.style.borderColor = corerro
         carta.style.borderColor = corerro
         emerro2.style.display = 'block'
-    } else if (botao == 'entrar') {
+    } else if (botao == 'entrar') { // quando campos estao vazios e o user clica em entrar
         emini.style.borderColor = corerro
         carta.style.borderColor = corerro
         emerro.style.display = 'block'
@@ -275,6 +298,8 @@ abrirform.addEventListener('click', async () => {
             regis.style.display = 'block'
             botao = 'registrando'
         } else {
+            let img = document.getElementById('picture__input')
+            console.log(img)
             cont = true
             if (!tmvalido(pasini.value, 8, 250)) { // verifica se a senha é invalida para emitir um aviso 
                 pasini.style.borderColor = corerro
@@ -312,8 +337,7 @@ abrirform.addEventListener('click', async () => {
                 cont = false
             }
             if (cont) {
-                console.log(pictureImage)
-                alert('registrado')
+                let token = cadastrar(emini.value, pasini.value, nomeini.value, Idgenero.value, cargoini.value, nucleoini.value, )
             } else {
                 alert("Verifique o formulario")
             }
