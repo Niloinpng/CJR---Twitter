@@ -90,6 +90,13 @@ class Usuario{
       }
     }
 
+    async Imagem(email){
+      const usuario = await prisma.usuario.findUnique({
+        where: {email}, 
+      })
+      return usuario.imagem;
+    }
+
 }
 
 export default Usuario

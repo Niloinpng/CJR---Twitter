@@ -57,4 +57,11 @@ usuarioRotas.post("/procuraemail", async(enviado,resposta) => {
     }
 })
 
+usuarioRotas.post("/imagem", async(eviado,resposta) => {
+    console.log("Entrou na roda imagem")
+    const{email} = eviado.body;
+    const imagem = await usuario.Imagem(email)
+    resposta.status(200).json(imagem)
+})
+
 export default usuarioRotas;
