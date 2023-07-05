@@ -8,6 +8,15 @@ async function procuraemail (Email){
     return response.json()
 }
 
+async function entrar (Email,Senha){
+    const response = await fetch("http://localhost:3000/entrar", {
+        method: "post",
+        headers: {"Content-type": "application/json"},
+        body: JSON.stringify({email: Email, senha: Senha})
+    })
+    return response.json()
+}
+
 var time = new Date()
 //importa os inputs por id
 var emini = document.getElementById('emini')

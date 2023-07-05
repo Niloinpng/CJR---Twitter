@@ -8,7 +8,7 @@ class Autentificação{
     async entrar(email,senha){
         const usuario_entrar = await usuario.procuraPorEmail(email);
         if(!usuario_entrar) throw new Error("Usuário não encontrado");
-        if(!(await bcrypt.compare(senha, usuario_entrar.senha))) throw new Error("Senha incorreta");
+        if(!(await bcrypt.compare(senha, usuario_entrar.senha))) throw new Error(false); //("Senha incorreta")
         const token = jwt.sign({id: usuario_entrar.id},"secret",{expiresIn: "60m"}); //Tempo do token 15 minutos
         return{token};
     }
