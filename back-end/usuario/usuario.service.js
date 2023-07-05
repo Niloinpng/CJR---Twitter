@@ -56,11 +56,40 @@ class Usuario{
         })
     }
 
-    async procuraPorEmail(email){
+    async procuraPorEmail(Email){
         return await prisma.usuario.findUnique({
-            where: { email },
+            where: { email : Email },
         })
     }
+
+    async trocarSenha(id, novaSenha){
+      const usuarioAtualizado = await prisma.usuario.update({
+        where: {id},
+        data: {senha: novaSenha},
+      });
+      return usuarioAtualizado;
+    }
+
+    async Perfil(id){
+      try{
+        const usuario = await prisma.usuario.findUnique({
+          where: {id},
+          select: {
+            imagem: true,
+            nome: true,
+            email: true,
+            cargo: true,
+            nucleo : true,
+            posts: true,
+          }
+        })
+        return usuario;
+      }catch(error){
+        console.error(error);
+        throw error;
+      }
+    }
+
 }
 
 export default Usuario

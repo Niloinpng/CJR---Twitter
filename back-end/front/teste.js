@@ -76,6 +76,16 @@ const form = () => {
   return {setEventHandlers};
 };
 
+async function procuraemail (Email){
+  const res = await fetch("http://localhost:3000/procuraemail", {
+          method: "post", 
+          headers: {"Content-type": "application/json"},
+          body: JSON.stringify({email : Email}),
+  })
+}
+
+
+
 form().setEventHandlers();
 
 /*

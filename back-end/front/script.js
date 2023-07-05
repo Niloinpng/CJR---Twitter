@@ -1,3 +1,13 @@
+async function procuraemail (Email){
+    const response = await fetch("http://localhost:3000/procuraemail", {
+            method: "post", 
+            headers: {"Content-type": "application/json"},
+            body: JSON.stringify({email : Email}),
+
+    })
+    return response.json()
+}
+
 var time = new Date()
 //importa os inputs por id
 var emini = document.getElementById('emini')
@@ -80,7 +90,7 @@ nucleoini.addEventListener('focus', () => {
 })
 
 //retorna a outline do formulario quando sai do foco
-emini.addEventListener('blur', () => {
+emini.addEventListener('blur', async () => {
     if (emini.value == "") { // volta os botões para como estavam no inicio
         emini.style.borderColor = corbordas // todos os styles estão comentados no staly.css
         carta.style.borderColor = corbordas
@@ -107,7 +117,11 @@ emini.addEventListener('blur', () => {
         imgini.style.display = 'none'
         return
     } else {
-        if (emini.value !== "teste@teste.teste") { // essa parte tem que ser mudada para quando tiver banco de dados
+        const body = await procuraemail(emini.value)
+        console.log(body)
+        if(!body){
+        //if(procuraemail(emini.value)){
+        //if (emini.value !== "teste@teste.teste") { // essa parte tem que ser mudada para quando tiver banco de dados
             botao = 'registrar'                    // para verificar se o email ja esta cadastrado
             abrirform.style.width = '84%'          // caso não esteja ele muda a cor da caixa e os botões
             abrirform.style.cursor = 'pointer'
@@ -230,8 +244,13 @@ nucleoini.addEventListener('blur', () => {
 
 const formlogin = document.getElementById('logini');
 
-abrirform.addEventListener('click', () => {
-    if (emini.value == 'teste@teste.teste') {
+abrirform.addEventListener('click', async () => {
+    const body = await procuraemail(emini.value)
+    console.log(body)
+    if(body){
+    //if(procuraemail(emini.value)){
+    //if(usuario.procuraPorEmail(emini.value)){
+    //if (emini.value == 'teste@teste.teste') { // if(!email) email já cadastrado 
         emini.style.borderColor = corerro
         carta.style.borderColor = corerro
         emerro2.style.display = 'block'

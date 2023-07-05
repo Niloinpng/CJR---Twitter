@@ -15,7 +15,6 @@ datasource db {
   url      = "file:./database.db"
 }
 
-
 //  TABELAS DO BANCO DE DADOS
 model Usuario{
   id Int @id @default(autoincrement())
@@ -28,28 +27,28 @@ model Usuario{
   nucleo Nucleo @relation(fields: [nucleoID], references: [id])
   nucleoID Int 
   imagem String? 
-  //admin Boolean
-  //posts Post[]
-  //coments Coments[]
+  admin Boolean @default(false)
+  posts Post[]
+  coments Coments[]
 }
 
 //Post
 model Post{
   id Int @id @default(autoincrement())
-  //user User @relation(fields: [user_id], references: [id])
-  user_id Int 
+  user Usuario? @relation(fields: [user_id], references: [id])
+  user_id Int?
   content String
   updated_at DateTime @updatedAt
   created_at DateTime @default(now())
-  //coments Coments[]
+  coments Coments[]
 }
 
 //Comentario
 model Coments{
   id Int @id @default(autoincrement())
-  //user User @relation(fields: [user_id], references: [id])
-  user_id Int 
-  //post Post @relation(fields: [post_id], references: [id])
+  user Usuario? @relation(fields: [user_id], references: [id])
+  user_id Int?
+  post Post @relation(fields: [post_id], references: [id])
   post_id Int 
   content String
 }

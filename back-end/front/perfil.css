@@ -44,12 +44,11 @@ nav {
     padding: 6px 60px;
 }
 
-#entrar-conta, .feed-publicar-button {
+#entrar-conta {
     background: var(--fontColorLight);
     color: var(--corescura);
     border-radius: 12px;
     padding: 10px 20px; /*cria caixinha envolta do componente de entrar*/
-    cursor: pointer;
 }
 
 /*hover faz a mudança de cor ao passar o mouse*/
@@ -58,14 +57,23 @@ nav {
     transition: all 700ms ease-in-out;
 }
 
-#entrar-conta:hover, .feed-publicar-button:hover {
+#entrar-conta:hover {
     color: var(--fontColorLight);
     background: var(--corextraescura);
     transition: all 700ms ease-in-out;
 }
 
-body {
-    background: var(--corclara);
+main {
+    justify-content: space-evenly;
+    align-items: center;
+    /*centraliza elements na main e insere espaço entre eles*/
+    padding: 50px 2px;
+    background: var(--corextraclara);
+}
+
+.Perfil {
+    text-align: center;
+    background-color: #29A0B1;
 }
 
 main {
