@@ -75,3 +75,58 @@ main {
     text-align: center;
     background-color: #29A0B1;
 }
+
+main {
+    margin-top: 15px;
+}
+
+
+.feed-content {
+    background: var(--fontColorLight);
+    margin: auto;
+    width: 60%;
+    border: 4px solid var(--corescura);
+    border-radius: 8px;
+}
+
+.feed-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--corescura);
+    padding: 2% 7%;
+}
+
+.message-box {
+    padding: 20px 30px;
+} 
+
+.message-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+}
+
+#profile-image {
+    border-radius: 50px;
+}
+
+.feed-text {
+    color: var(--fontColorDark);
+    word-break: break-all;
+}
+
+.date-text {
+    color: var(--fontColorDark)
+}
+
+.message-body {
+    padding-left: 68px;
+    padding-right: 68px;
+}
+
+.message-comment {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

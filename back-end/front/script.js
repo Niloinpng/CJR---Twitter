@@ -1,9 +1,11 @@
 async function procuraemail (Email){
-    const res = await fetch("http://localhost:3000/procuraemail", {
+    const response = await fetch("http://localhost:3000/procuraemail", {
             method: "post", 
             headers: {"Content-type": "application/json"},
             body: JSON.stringify({email : Email}),
+
     })
+    return response.json()
 }
 
 var time = new Date()
@@ -115,9 +117,10 @@ emini.addEventListener('blur', async () => {
         imgini.style.display = 'none'
         return
     } else {
-        const Resposta = await procuraemail(emini.value)
-        console.log(Resposta)
-        if(await procuraemail(emini.value)){
+        const body = await procuraemail(emini.value)
+        console.log(body)
+        if(!body){
+        //if(procuraemail(emini.value)){
         //if (emini.value !== "teste@teste.teste") { // essa parte tem que ser mudada para quando tiver banco de dados
             botao = 'registrar'                    // para verificar se o email ja esta cadastrado
             abrirform.style.width = '84%'          // caso não esteja ele muda a cor da caixa e os botões
@@ -241,9 +244,11 @@ nucleoini.addEventListener('blur', () => {
 
 const formlogin = document.getElementById('logini');
 
-abrirform.addEventListener('click', () => {
-    console.log(emini.value)
-    if(procuraemail(emini.value)){
+abrirform.addEventListener('click', async () => {
+    const body = await procuraemail(emini.value)
+    console.log(body)
+    if(body){
+    //if(procuraemail(emini.value)){
     //if(usuario.procuraPorEmail(emini.value)){
     //if (emini.value == 'teste@teste.teste') { // if(!email) email já cadastrado 
         emini.style.borderColor = corerro
