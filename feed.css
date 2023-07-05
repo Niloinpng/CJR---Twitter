@@ -76,6 +76,8 @@ main {
     display: none;
     margin: auto;
     align-items: center;
+    /*transform: translateX(50%);
+    position: absolute;*/
     width: 50%;
     height: 50%;
     background: var(--cormedia);
