@@ -1,5 +1,6 @@
 import {PrismaClient} from "@prisma/client"; 
 const prisma = new PrismaClient();
+import bcrypt from "bcrypt";
 
 class Usuario{
 
@@ -62,9 +63,11 @@ class Usuario{
         })
     }
 
-    async trocarSenha(id, novaSenha){
+    async trocarSenha(email, novaSenha){
+      const salt = await bcrypt.genSalt();
+      novaSenha = await bcrypt.hash(novaSenha, salt);
       const usuarioAtualizado = await prisma.usuario.update({
-        where: {id},
+        where: {email},
         data: {senha: novaSenha},
       });
       return usuarioAtualizado;

@@ -362,6 +362,8 @@ formlogin.addEventListener("submit", async (event) => {
     //verificar a senha, se a senha tá certa ou não 
     const RespostaEntrar = await entrar(emini.value,pasini.value)
     console.log(RespostaEntrar)
+    console.log(RespostaEntrar.message)
+    console.log(RespostaEntrar.token)
     //console.log((+RespostaEntrar.message))
     if (!tmvalido(pasini.value, 8, 250)) { // verifica se a senha é invalida para emitir um aviso
         alert("Verifique o formulario")
@@ -369,7 +371,7 @@ formlogin.addEventListener("submit", async (event) => {
         cadeado.style.borderColor = corerro
         senerro.style.display = 'block'
         return
-    } else if (RespostaEntrar == {message: '0'}) { //se a senha estiver errada, aparece no front imagens de erro 
+    } else if (RespostaEntrar.message == "Senha incorreta") { //se a senha estiver errada, aparece no front imagens de erro 
         console.log("Senha errada")
         pasini.style.borderColor = corerro
         cadeado.style.borderColor = corerro
