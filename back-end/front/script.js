@@ -54,6 +54,7 @@ var nomeini = document.getElementById('nomeini')
 var Idgenero = document.getElementById('Idgenero')
 var cargoini = document.getElementById('cargoini')
 var nucleoini = document.getElementById('nucleoini')
+var imagini = document.getElementById('image')
 //importa campo de registro por id
 var regis = document.getElementById('regini')
 //importa os textos por id
@@ -298,8 +299,6 @@ abrirform.addEventListener('click', async () => {
             regis.style.display = 'block'
             botao = 'registrando'
         } else {
-            let img = document.getElementById('picture__input')
-            console.log(img)
             cont = true
             if (!tmvalido(pasini.value, 8, 250)) { // verifica se a senha é invalida para emitir um aviso 
                 pasini.style.borderColor = corerro
@@ -337,7 +336,9 @@ abrirform.addEventListener('click', async () => {
                 cont = false
             }
             if (cont) {
-                let token = cadastrar(emini.value, pasini.value, nomeini.value, Idgenero.value, cargoini.value, nucleoini.value, )
+                let novoUsuario = await cadastrar(emini.value, pasini.value, nomeini.value, Idgenero.value, cargoini.value, nucleoini.value, imagini.src)
+                console.log(novoUsuario)
+                //colocar o entrar e o token
             } else {
                 alert("Verifique o formulario")
             }
@@ -346,7 +347,7 @@ abrirform.addEventListener('click', async () => {
 })
 
 //Envia alerta de erro no fomulario
-formlogin.addEventListener("submit", (event) => {
+formlogin.addEventListener("submit", async (event) => {
     event.preventDefault()
     if (botao == 'registrar' || botao == 'registrando'){ //ver se ta na tela de registro e invalida o botão submit
         return
@@ -358,20 +359,28 @@ formlogin.addEventListener("submit", (event) => {
         emerro.style.display = 'block'
         return
     }
+    //verificar a senha, se a senha tá certa ou não 
+    const RespostaEntrar = await entrar(emini.value,pasini.value)
+    console.log(RespostaEntrar)
+    //console.log((+RespostaEntrar.message))
     if (!tmvalido(pasini.value, 8, 250)) { // verifica se a senha é invalida para emitir um aviso
         alert("Verifique o formulario")
         pasini.style.borderColor = corerro
         cadeado.style.borderColor = corerro
         senerro.style.display = 'block'
         return
-    } else if (esqueci.value != '12345678') {
+    } else if (RespostaEntrar == {message: '0'}) { //se a senha estiver errada, aparece no front imagens de erro 
+        console.log("Senha errada")
         pasini.style.borderColor = corerro
         cadeado.style.borderColor = corerro
         esqueci.style.display = 'block'
         esqueci2.style.display = 'block'
         return
+    } else { 
+        console.log("Senha certa")
+        console.log(RespostaEntrar)
+        alert('logado') // envia o formulario
     }
-    alert('logado') // envia o formulario
 })
 
 //Valida o email
@@ -410,12 +419,12 @@ inputFile.addEventListener("change", function (e) {
         reader.addEventListener("load", function (e) {
             const readerTarget = e.target
             
-            const img = document.createElement("img")
+            const img = document.getElementById('image')
             img.src = readerTarget.result;
-            img.classList.add("picture__img")
             
             pictureImage.innerHTML = ""
             pictureImage.appendChild(img)
+            console.log(img)
         });
 
         reader.readAsDataURL(file)
