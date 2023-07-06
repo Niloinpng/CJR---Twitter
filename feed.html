@@ -17,32 +17,44 @@
 
         <main>
 
-            <div class="publish-content" id="content">
-                <div class="publish-box">
-                    <div class="publish-nav">
-                        <img class="publish-icon" src="/images/Bold icon.svg" alt="make post bold">
-                        <img class="publish-icon" src="/images/Italic icon.svg" alt="make post italic">
-                        <img class="publish-icon" src="/images/Heading icon.svg" alt="make post heading">
-                        <img class="publish-icon" src="/images/Link icon.svg" alt="add a link to post">
-                        <img class="publish-icon" src="/images/Image icon.svg" alt="add a image to post">
-                        <img class="publish-icon" src="/images/Question icon.svg" alt="information">
+            <!-- The Modal -->
+            <div class="modal-overlay">
+                <div class="publish-content">
+                    <div class="publish-box">
+    
+                        <div class="publish-nav">
+                            <img class="publish-icon" src="/images/Bold icon.svg" alt="make post bold">
+                            <img class="publish-icon" src="/images/Italic icon.svg" alt="make post italic">
+                            <img class="publish-icon" src="/images/Heading icon.svg" alt="make post heading">
+                            <img class="publish-icon" src="/images/Link icon.svg" alt="add a link to post">
+                            <img class="publish-icon" src="/images/Image icon.svg" alt="add a image to post">
+                            <img class="publish-icon" src="/images/Question icon.svg" alt="information">
+                        </div>
+    
+                        <hr>
+    
+                        <form action="">
+                            <input class="publish-input" type="text" placeholder="No que você está pensando? Compartilha com a gente...">
+                        </form>
+    
                     </div>
-                    <hr>
-                    <form action="">
-                        <input class="publish-input" type="text" placeholder="No que você está pensando? Compartilha com a gente...">
-                    </form>
-                </div>
-                <div class="publish-buttons">
-                    <h4 class="cancelar-publish" id="cancelar">Cancelar</h4>
-                    <h4 class="confirmar-publish">Publicar</h4>
+    
+                    <div class="publish-buttons">
+                        <h4 class="cancelar-publish" id="cancelar" onclick="fechaModal(event)">Cancelar</h4>
+                        <h4 class="confirmar-publish">Publicar</h4>
+                    </div>
                 </div>
             </div>
+            
 
             <div class="feed-content">
+
                 <div class="feed-nav">
                     <a href=""><img id="back-icon" src="images/back icon.svg" alt="back icon"></a>
-                    <h4 class="feed-publicar-button" id="publicar">Publicar</h4>
+                    <!-- Trigger to the Modal Content -->
+                    <h4 class="feed-publicar-button" id="publicar" onclick="abreModal(event)">Publicar</h4>
                 </div>
+
                 <div class="message-box">
                     <div class="message-header">
                         <a href=""><img id="profile-image" src="/images/profile image.svg" alt=""></a>
@@ -52,13 +64,15 @@
                     <div class="message-body message-text">
                         <p class="feed-text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin</p>
                     </div>
-                    <div class="message-body message-comment">
-                        <img id="comment-button" src="/images/comment icon.svg" alt="comment icon">
+                    <!-- Trigger to the Modal Content -->
+                    <div class="message-body message-comment"> 
+                        <img id="comment-button" src="/images/comment icon.svg" alt="comment icon" onclick="abreModal(event)">
                     </div>
                     <div class="message-body">
                         <hr>
                     </div>
                 </div>
+
                 <div class="message-box">
                     <div class="message-header">
                         <a href=""><img id="profile-image" src="/images/profile image.svg" alt=""></a>
@@ -68,13 +82,34 @@
                     <div class="message-body message-text">
                         <p class="feed-text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin</p>
                     </div>
+                    <!-- Trigger to the Modal Content -->
                     <div class="message-body message-comment">
-                        <img id="comment-button" src="/images/comment icon.svg" alt="comment icon">
+                        <img id="comment-button" src="/images/comment icon.svg" alt="comment icon" onclick="abreModal(event)">
                     </div>
                     <div class="message-body">
                         <hr>
                     </div>
                 </div>
+
+                <div class="message-box">
+                    <div class="message-header">
+                        <a href=""><img id="profile-image" src="/images/profile image.svg" alt=""></a>
+                        <h3 class="feed-text message-header-content">Fulana</h4>
+                        <h5 class="date-text message-header-content">14/06/2023</h6>
+                    </div>
+                    <div class="message-body message-text">
+                        <p class="feed-text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin</p>
+                    </div>
+                    <!-- Trigger to the Modal Content -->
+                    <div class="message-body message-comment"> 
+                        <img id="comment-button" src="/images/comment icon.svg" alt="comment icon" onclick="abreModal(event)">
+                    </div>
+                    <div class="message-body">
+                        <hr>
+                    </div>
+                </div>
+
+
             </div>
         </main>
         <script src="feed.js"></script>

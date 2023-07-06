@@ -72,14 +72,37 @@ main {
     margin-top: 15px;
 }
 
-.publish-content {
+.modal-overlay {
     display: none;
-    margin: auto;
-    align-items: center;
+    visibility: hidden;
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    top: 0;
+}
+
+.modal-visible {
+    display: block;
+    visibility: visible;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 50%;
+    height: 61%;
+    overflow: auto;
+}
+
+.publish-content {
     /*transform: translateX(50%);
     position: absolute;*/
+    margin: 5% 25%;
     width: 50%;
-    height: 50%;
+    height: 61%;
     background: var(--cormedia);
     padding: 30px;
     border-radius: 8px;
