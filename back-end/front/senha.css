@@ -85,7 +85,7 @@ main {
 
 .recup-box {
     background: var(--fontColorLight);
-    width: 32%;
+    width: 35%;
     height: 60%;
     border-radius: 12px;
 }
@@ -121,7 +121,7 @@ main {
 .input-box {
     border-radius: 15px;
     width: 100%;
-    height: 50px;
+    height: 40px;
     border-style: solid;
     border-color: var(--corescura);
     background: var(--corextraclara);
@@ -141,6 +141,11 @@ main {
     color: var(--fontColorDark);
 }
 
+.check-password {
+    height: 15px;
+    width: 15px;
+}
+
 .err {
     font-size: small;
     font-weight: bold;
@@ -157,7 +162,7 @@ main {
 #button-box {
     border-radius: 15px;
     width: 50%;
-    height: 40px;
+    height: 30px;
     border-style: solid;
     border-color: var(--corescura);
     font-size: small;

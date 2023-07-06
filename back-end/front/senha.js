@@ -27,3 +27,17 @@ function validatePw(event) { // function called when user clicks button-box elem
     }
     return true;
 };
+
+let checkSenha = document.getElementById('check-pw');
+let inputSenha = document.getElementById("pw");
+let inputConfirmar = document.getElementById("confirm-pw");
+
+checkSenha.addEventListener('change', function() {
+    if (checkSenha.checked) {
+        inputSenha.type = "text";
+        inputConfirmar.type = "text";
+    } else {
+        inputSenha.type = "password";
+        inputConfirmar.type = "password";
+    }
+});

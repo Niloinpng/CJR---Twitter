@@ -29,19 +29,32 @@
                     <form action="">
 
                         <div class="margin-dist-f">
+                            <label class="input-label" for="email">Email</label><br>
+                        </div>
+
+                        <div class="margin-dist-f center">
+                            <input required class="input-box" id="email" type="email" name="email" placeholder="Digite o email">
+                        </div>
+
+                        <div class="margin-dist-f">
                             <label class="input-label" for="new password">Nova Senha</label><br>
                         </div>
 
                         <div class="margin-dist-f center">
-                            <input required class="input-box" id="pw" type="password" name="new password" placeholder="Digite a nova senha"><br>
+                            <input required class="input-box" id="pw" type="password" name="new password" placeholder="Digite a nova senha">
                         </div>
 
                         <div class="margin-dist-f">
-                            <label class="input-label" for="confirm new password">Confirme a Nova Senha</label><br>
+                            <input class="check-password" type="checkbox" id="check-pw" placeholder="">
+                            <label class="input-label" for="checkPw">Mostrar senha</label>
+                        </div>
+
+                        <div class="margin-dist-f">
+                            <label class="input-label" for="confirm new password">Confirme a Nova Senha</label>
                         </div>
 
                         <div class="margin-dist-f center">
-                            <input required class="input-box margin-dist-f" id="confirm-pw" type="password" name="confirm new password" placeholder="Confirme a nova senha"><br>
+                            <input required class="input-box margin-dist-f" id="confirm-pw" type="password" name="confirm new password" placeholder="Confirme a nova senha">
                             <text class="err" id="erro-chars">Senha deve ter 8-250 caracteres!</text>
                             <text class="err" id="erro-igual">Senhas devem ser iguais!</text>
                         </div>
