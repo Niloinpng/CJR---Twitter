@@ -20,9 +20,9 @@ usuarioRotas.get("/usuario", async(eviado,resposta) => {
     resposta.status(200).json(listaUsuarios);
 })
 
-usuarioRotas.get("/perfil/:id", async(eviado, resposta) => {
+usuarioRotas.post("/perfil", async(eviado, resposta) => {
     console.log("entrou na rota perfil")
-    const{id} = eviado.params;
+    const{id} = eviado.body;
     const usuario_perfil = await usuario.Perfil(+id);
     if(!usuario_perfil)
         return resposta.status(400).json({message: "Usuario não existe"})
