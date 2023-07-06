@@ -20,7 +20,8 @@ usuarioRotas.get("/usuario", async(eviado,resposta) => {
     resposta.status(200).json(listaUsuarios);
 })
 
-usuarioRotas.get("/perfil.html/:id", async(eviado, resposta) => {
+usuarioRotas.get("/perfil/:id", async(eviado, resposta) => {
+    console.log("entrou na rota perfil")
     const{id} = eviado.params;
     const usuario_perfil = await usuario.Perfil(+id);
     if(!usuario_perfil)

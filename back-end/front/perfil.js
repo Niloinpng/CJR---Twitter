@@ -1,7 +1,12 @@
-async function procuraUsario (id){
-    const res = await fetch("http://localhost:3000//usuario/:"+id, {
-            method: "get", 
+async function procuraUsario (){
+    const response = await fetch("http://localhost:3000/perfil/19", {
+           method: "get", 
             headers: {"Content-type": "application/json"},
-            body: JSON.stringify({email : Email}),
-    })
-}
+            body: JSON.stringify()})
+    return response.json()}
+
+
+const usuario = procuraUsario()
+
+console.log(usuario)
+
