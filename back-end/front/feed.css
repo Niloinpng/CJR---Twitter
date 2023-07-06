@@ -44,7 +44,7 @@ nav {
     padding: 6px 60px;
 }
 
-#entrar-conta, .feed-publicar-button {
+#entrar-conta, .feed-publicar-button, .confirmar-publish {
     background: var(--fontColorLight);
     color: var(--corescura);
     border-radius: 12px;
@@ -53,12 +53,12 @@ nav {
 }
 
 /*hover faz a mudança de cor ao passar o mouse*/
-#criar-conta:hover {
+#criar-conta:hover, .cancelar-publish:hover {
     color: var(--corextraescura);
     transition: all 700ms ease-in-out;
 }
 
-#entrar-conta:hover, .feed-publicar-button:hover {
+#entrar-conta:hover, .feed-publicar-button:hover, .confirmar-publish:hover {
     color: var(--fontColorLight);
     background: var(--corextraescura);
     transition: all 700ms ease-in-out;
@@ -72,6 +72,87 @@ main {
     margin-top: 15px;
 }
 
+.modal-overlay {
+    display: none;
+    visibility: hidden;
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    top: 0;
+}
+
+.modal-visible {
+    display: block;
+    visibility: visible;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 50%;
+    height: 61%;
+    overflow: auto;
+}
+
+.publish-content {
+    /*transform: translateX(50%);
+    position: absolute;*/
+    margin: 5% 25%;
+    width: 50%;
+    height: 61%;
+    background: var(--cormedia);
+    padding: 30px;
+    border-radius: 8px;
+    border: 4px solid var(--corextraescura);
+}
+
+.publish-box {
+    background: var(--corextraescura);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.publish-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.publish-icon {
+    width: 5%;
+    height: 5%;
+    cursor: pointer;
+}
+
+.publish-input {
+    border-radius: 0px 0px 8px 8px;
+    width: 100%;
+    height: 180px;
+    background: var(--corextraescura);
+    border-style: none;
+    outline: none;
+    color: var(--fontColorLight);
+    word-break: break-all;
+}
+
+::placeholder {
+    color: var(--fontColorLight);
+}
+
+.publish-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px 0px;
+}
+
+.cancelar-publish {
+    cursor: pointer;
+    color: var(--fontColorLight);
+}
 
 .feed-content {
     background: var(--fontColorLight);
@@ -96,8 +177,12 @@ main {
 .message-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 30%;
+    width: 100%;
+}
+
+.header-text {
+    white-space: nowrap;
+    padding: 0px 18px 0px;
 }
 
 #profile-image {
@@ -121,4 +206,8 @@ main {
 .message-comment {
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+#comment-button:hover {
+    cursor: pointer;
 }
