@@ -338,6 +338,7 @@ abrirform.addEventListener('click', async () => {
             if (cont) {
                 let novoUsuario = await cadastrar(emini.value, pasini.value, nomeini.value, Idgenero.value, cargoini.value, nucleoini.value, imagini.src)
                 console.log(novoUsuario)
+                window.location.href = 'http://localhost:3000/feed.html'
                 //colocar o entrar e o token
             } else {
                 alert("Verifique o formulario")
@@ -381,6 +382,7 @@ formlogin.addEventListener("submit", async (event) => {
     } else { 
         console.log("Senha certa")
         console.log(RespostaEntrar)
+        window.location.href = 'http://localhost:3000/feed.html'
         alert('logado') // envia o formulario
     }
 })
