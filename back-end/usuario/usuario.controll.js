@@ -57,6 +57,18 @@ usuarioRotas.post("/procuraemail", async(enviado,resposta) => {
     }
 })
 
+usuarioRotas.post("/trocasenha", async(enviado, resposta) => {
+    console.log("entrou na rota de trocar senha");
+    console.log(enviado);
+    const{email, novaSenha} = enviado.body;
+    console.log(email, novaSenha);
+    if (await usuario.trocarSenha(email, novaSenha)) {
+        resposta.status(200).json(1)
+    } else {
+        resposta.status(400).json(0)
+    }
+})
+
 usuarioRotas.post("/imagem", async(eviado,resposta) => {
     console.log("Entrou na roda imagem")
     const{email} = eviado.body;
