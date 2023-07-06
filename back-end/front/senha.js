@@ -27,19 +27,19 @@ function validatePw() { // function called when user clicks button-box element i
     return true;
 };
 
-let checkSenha = document.getElementById('check-pw');
 let inputSenha = document.getElementById("pw");
+let confirmarSenha = document.getElementById('confirm-pw');
+let checkSenha = document.getElementById('check-pw');
 
-
-/*checkSenha.addEventListener('change', function() {
+checkSenha.addEventListener('change', function() {
     if (checkSenha.checked) {
         inputSenha.type = "text";
-        inputConfirmar.type = "text";
+        confirmarSenha.type = "text";
     } else {
         inputSenha.type = "password";
-        inputConfirmar.type = "password";
+        confirmarSenha.type = "password";
     }
-});*/
+});
 
 async function procuraemail (Email){
     const response = await fetch("http://localhost:3000/procuraemail", {
@@ -74,6 +74,5 @@ formTroca.addEventListener("submit", async (event) => {
         } else {
             console.log("enail n existe")
         }
-        
     }
 })
