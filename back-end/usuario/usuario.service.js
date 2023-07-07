@@ -64,6 +64,7 @@ class Usuario{
     }
 
     async trocarSenha(email, novaSenha){
+      console.log("Entrou na função trocar senha")
       const salt = await bcrypt.genSalt();
       novaSenha = await bcrypt.hash(novaSenha, salt);
       const usuarioAtualizado = await prisma.usuario.update({

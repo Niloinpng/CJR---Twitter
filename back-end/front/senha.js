@@ -1,3 +1,6 @@
+//Função do Back 
+
+
 // Password check functions
 function inPwRange(pw) {
     return pw.length >= 8 && pw.length <= 250; // checks range
@@ -67,12 +70,14 @@ formTroca.addEventListener("submit", async (event) => {
     event.preventDefault();
     let email = document.getElementById("email")
     let inputSenha = document.getElementById("pw");
+    console.log(email.value)
     if (validatePw()) {
-        if (await procuraemail(email)) {
-            await trocarSenha(document.getElementById);
-            console.log("senha atualizada com sucesso");
+        if (await procuraemail(email.value)) {
+            await trocarSenha(email.value,inputSenha.value);
+            alert("senha atualizada com sucesso");
+            window.location.href = 'http://localhost:3000/index.html'
         } else {
-            console.log("enail n existe")
+            alert("email não cadastrado")
         }
     }
 })
