@@ -82,9 +82,9 @@ var imgini = document.getElementById('imgini')
 var botao = 'entrar'
 //cores
 var formulario = '#fff'
-var corclara=  '#a15'
-var cormedia = '#803'
-var corescura = '#601'
+var corclara=  '#71D5E4'
+var cormedia = '#00B6BC'
+var corescura = '#29A0B1'
 var corbordas = '#ccc'
 var corerro = '#a00'
 var corcerto = '#0a0'
@@ -93,14 +93,18 @@ console.log(time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds())
 
 //Visibilidade da senha
 
-const SenhaCheckbox = document.getElementById('checkSen');
+var SenhaCheckbox = document.getElementById('checkSen')
 
 SenhaCheckbox.addEventListener('change', function() {
     if (SenhaCheckbox.checked) {
-        pasini.type = 'text';
+        pasini.type = 'text'
     } else {
-        pasini.type = 'password';
+        pasini.type = 'password'
     }
+})
+
+emini.addEventListener('input', function() {
+    this.value = this.value.toLowerCase();
 });
 
 //Muda a outline do formulario quando esta no foco
@@ -338,6 +342,7 @@ abrirform.addEventListener('click', async () => {
             if (cont) {
                 let novoUsuario = await cadastrar(emini.value, pasini.value, nomeini.value, Idgenero.value, cargoini.value, nucleoini.value, imagini.src)
                 console.log(novoUsuario)
+                alert("registrado com sucesso")
                 window.location.href = 'http://localhost:3000/feed.html'
                 //colocar o entrar e o token
             } else {
@@ -383,7 +388,6 @@ formlogin.addEventListener("submit", async (event) => {
         console.log("Senha certa")
         console.log(RespostaEntrar)
         window.location.href = 'http://localhost:3000/feed.html'
-        alert('logado') // envia o formulario
     }
 })
 
@@ -412,7 +416,7 @@ const inputFile = document.querySelector("#picture__input")
 const pictureImage = document.querySelector(".picture__image")
 
 inputFile.addEventListener("change", function (e) {
-  const inputTarget = e.target;
+  const inputTarget = e.target
   const file = inputTarget.files[0]
 
   if (file) {
@@ -424,11 +428,10 @@ inputFile.addEventListener("change", function (e) {
             const readerTarget = e.target
             
             const img = document.getElementById('image')
-            img.src = readerTarget.result;
+            img.src = readerTarget.result
             
             pictureImage.innerHTML = ""
             pictureImage.appendChild(img)
-            console.log(img)
         });
 
         reader.readAsDataURL(file)

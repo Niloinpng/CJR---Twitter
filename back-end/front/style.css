@@ -196,10 +196,14 @@ form img[id=loginimg]{
 /* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */
 
 :root {
+    --fontColorDark: #05445E;
+    --fontColorLight: #E4F4F3;
+    --corextraclara: #A1DBF1;
     --formulario: #fff;
-    --corclara: #a15;
-    --cormedia: #803;
-    --corescura: #601;
+    --corclara: #71D5E4;
+    --cormedia: #00B6BC;
+    --corescura: #29A0B1;
+    --corextraescura: #05445E;
     --corbordas: #ccc;
     --corerro: #a00;
     --corcerto: #0a0;
@@ -213,7 +217,7 @@ form img[id=loginimg]{
 }
 
 body {
-    background-color: var(--cormedia);
+    background-image: linear-gradient(var(--corextraescura), var(--corclara));
 }
 
 form {
