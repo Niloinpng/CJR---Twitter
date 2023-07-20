@@ -1,6 +1,7 @@
 import {Router, response} from "express";
 import Autentificação from "./autentificacao.service.js";
 import Usuario from "../usuario/usuario.service.js";
+import JwtGuard from "../autentificação/guards/jwt.guard.js";
 
 const autentificacao = new Autentificação;
 const autentificacaoRotas = Router();
@@ -34,6 +35,15 @@ autentificacaoRotas.post("/cadastro", async(enviado,resposta) => {
         resposta.status(200).json(novoUsuario);
     }catch(e){
         resposta.status(400).json({message: e.message});
+    }
+})
+
+autentificacaoRotas.get("/info", JwtGuard, async(eviado,resposta) => {
+    const usuario = eviado.user;
+    try{
+        resposta.status(200).json(usuario);
+    }catch(e){
+        resposta.status(400).json({erro: err.message});
     }
 })
 
