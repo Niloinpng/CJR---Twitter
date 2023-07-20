@@ -343,8 +343,9 @@ abrirform.addEventListener('click', async () => {
                 let novoUsuario = await cadastrar(emini.value, pasini.value, nomeini.value, Idgenero.value, cargoini.value, nucleoini.value, imagini.src)
                 console.log(novoUsuario)
                 alert("registrado com sucesso")
+                const RespostaEntrar = await entrar(emini.value,pasini.value) //Faz o processo de entrar para o novo usuario
+                localStorage.setItem('accessToken', RespostaEntrar.token); //Armazena o token
                 window.location.href = 'http://localhost:3000/feed.html'
-                //colocar o entrar e o token
             } else {
                 alert("Verifique o formulario")
             }
@@ -367,10 +368,6 @@ formlogin.addEventListener("submit", async (event) => {
     }
     //verificar a senha, se a senha tá certa ou não 
     const RespostaEntrar = await entrar(emini.value,pasini.value)
-    console.log(RespostaEntrar)
-    console.log(RespostaEntrar.message)
-    console.log(RespostaEntrar.token)
-    //console.log((+RespostaEntrar.message))
     if (!tmvalido(pasini.value, 8, 250)) { // verifica se a senha é invalida para emitir um aviso
         alert("Verifique o formulario")
         pasini.style.borderColor = corerro
@@ -378,16 +375,14 @@ formlogin.addEventListener("submit", async (event) => {
         senerro.style.display = 'block'
         return
     } else if (RespostaEntrar.message == "Senha incorreta") { //se a senha estiver errada, aparece no front imagens de erro 
-        console.log("Senha errada")
         pasini.style.borderColor = corerro
         cadeado.style.borderColor = corerro
         esqueci.style.display = 'block'
         esqueci2.style.display = 'block'
         return
     } else { 
-        console.log("Senha certa")
-        console.log(RespostaEntrar)
-        window.location.href = 'http://localhost:3000/feed.html'
+        localStorage.setItem('accessToken', RespostaEntrar.token); //Armazena o token no local strorage
+        window.location.href = 'http://localhost:3000/feed.html' //Redireciona para a pagina feed
     }
 })
 

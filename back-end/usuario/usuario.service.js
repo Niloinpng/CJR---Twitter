@@ -2,6 +2,7 @@ import {PrismaClient} from "@prisma/client";
 const prisma = new PrismaClient();
 import bcrypt from "bcrypt";
 
+
 class Usuario{
 
     async criarUsuario(email,senha,nome,genero,imagem,cargo,nucleo){
@@ -74,6 +75,66 @@ class Usuario{
       return usuarioAtualizado;
     }
 
+    async trocaNome(id,novoNome){
+      const usuarioAtualizado = await prisma.usuario.update({
+        where: {id},
+        data: {nome: novoNome}
+      })
+      return usuarioAtualizado;
+    }
+
+    async trocaImagem(id,novaImagem){
+      const usuarioAtualizado = await prisma.usuario.update({
+        where: {id},
+        data: {imagem: novaImagem}
+      })
+      return usuarioAtualizado;
+    }
+
+    async trocaEmail(id,novoEmail){
+      try {
+        const usuarioAtualizado = await prisma.usuario.update({
+          where: {id},
+          data: {email: novoEmail}
+        })
+        return usuarioAtualizado;
+      }catch (e) {
+        console.log(e);
+        if (e.code === "P2002") throw new Error("Email já cadastrado");
+        throw e;
+      }
+    }
+
+    async trocaCargo(id,novoCargo){
+      const usuarioAtualizado = await prisma.usuario.update({
+        where: {id},
+        data: {cargo: novoCargo}
+      })
+      return usuarioAtualizado;  
+    }
+
+    async trocaNucleo(id,novoNucleo){
+      const nucleoExistente = await prisma.nucleo.findUnique({
+        where: { nome: novoNucleo },
+      });
+      let nucleoId;
+      if (!nucleoExistente) {
+        const Nucleo = await prisma.nucleo.create({
+          data: {
+            nome: novoNucleo,
+          },
+        });
+        nucleoId = Nucleo.id;
+      } else {
+        nucleoId = nucleoExistente.id;
+      }
+      const usuarioAtualizado = prisma.usuario.update({
+        where: {id},
+        data: {nucleo: {connect: { id: nucleoId },},}
+      })
+      return usuarioAtualizado
+    }
+
     async Perfil(id){
       try{
         const usuario = await prisma.usuario.findUnique({
@@ -100,7 +161,6 @@ class Usuario{
       })
       return usuario.imagem;
     }
-
 }
 
 export default Usuario
