@@ -1,5 +1,4 @@
 import {PrismaClient} from "@prisma/client"; 
-
 const prisma = new PrismaClient();
 
 class Post{
@@ -22,13 +21,9 @@ class Post{
 //        return await 
 //    }
 
-    async deletaPost(id){
-        return await prisma.post.delete({ 
-            where: { id },
-        }).catch(e => {
-            if(e.code == "P2025") throw new Error("Post não encontrado");
-            throw e;
-        })
+    async deletaPost(id,user_id){
+        const post = await prisma.post.delete({where: { id }})
+        if post.user_id == user_id)
     }
 }
 

@@ -23,7 +23,7 @@ postRotas.get("/post", async(eviado,resposta) => {
 postRotas.delete("/post/:id", JwtGuard ,async(eviado,resposta) => {
     const{id} = eviado.params;
     try{
-        const postDeletado = await post.deletaPost(+id);
+        const postDeletado = await post.deletaPost(+id,eviado.user.id);
         resposta.status(200).json(postDeletado);
     }catch(err){
         resposta.status(400).json({erro: err.message});
