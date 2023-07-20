@@ -14,5 +14,6 @@ function fechaModal(event) {
 var simplemde = new SimpleMDE({
 	element: document.getElementById("md"),
 	placeholder: "Converse com a gente...",
+    spellChecker: false,
     toolbar: ["bold", "italic", "heading", "link", "image", "|", "guide"]
 });
