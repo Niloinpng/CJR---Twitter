@@ -2,7 +2,8 @@
 <html>
     <head>
         <title>Feed</title>
-        <link rel="icon" href="images/cjr logo.svg">
+        <link rel="icon" href="images/logo.png" type="image/png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
         <link rel="stylesheet" href="feed.css">
     </head>
     <body>
@@ -20,29 +21,14 @@
             <!-- The Modal -->
             <div class="modal-overlay">
                 <div class="publish-content">
-                    <div class="publish-box">
     
-                        <div class="publish-nav">
-                            <img class="publish-icon" src="images/Bold icon.svg" alt="make post bold">
-                            <img class="publish-icon" src="images/Italic icon.svg" alt="make post italic">
-                            <img class="publish-icon" src="images/Heading icon.svg" alt="make post heading">
-                            <img class="publish-icon" src="images/Link icon.svg" alt="add a link to post">
-                            <img class="publish-icon" src="images/Image icon.svg" alt="add a image to post">
-                            <img class="publish-icon" src="images/Question icon.svg" alt="information">
-                        </div>
-    
-                        <hr>
-    
-                        <form action="">
-                            <input class="publish-input" type="text" placeholder="No que você está pensando? Compartilha com a gente...">
-                        </form>
-    
-                    </div>
+                    <textarea name="markdown" id="md" cols="30" rows="10"></textarea>
     
                     <div class="publish-buttons">
                         <h4 class="cancelar-publish" id="cancelar" onclick="fechaModal(event)">Cancelar</h4>
                         <h4 class="confirmar-publish">Publicar</h4>
                     </div>
+
                 </div>
             </div>
             
@@ -113,6 +99,7 @@
 
             </div>
         </main>
+        <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
         <script src="feed.js"></script>
     </body>
 </html>
