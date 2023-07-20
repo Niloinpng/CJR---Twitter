@@ -45,10 +45,60 @@ usuarioRotas.delete("/usuario/:id", JwtGuard ,async(eviado,resposta) => {
     }
 })
 
+usuarioRotas.post("/trocaNome", JwtGuard, async(enviado,resposta) => {
+    const{novoNome} = enviado.body
+    try{
+        const novoUsuario = await usuario.trocaNome(enviado.user.id,novoNome)
+        resposta.status(200).json(novoUsuario)
+    }catch(err){
+        resposta.status(400).json({erro: err.message})
+    }
+})
+
+usuarioRotas.post("/trocaImagem", JwtGuard, async(enviado,resposta) => {
+    const{novaImagem} = enviado.body
+    try{
+        const novoUsuario = await usuario.trocaImagem(enviado.user.id,novaImagem)
+        resposta.status(200).json(novoUsuario)
+    }catch(err){
+        resposta.status(400).json({erro: err.message})
+    }
+})
+
+usuarioRotas.post("/trocaEmail", JwtGuard, async(eviado,resposta) => {
+    const{novoEmail} = eviado.body
+    try{
+        const novoUsuario = await usuario.trocaEmail(eviado.user.id,novoEmail)
+        resposta.status(200).json(novoUsuario)
+    }catch(err){
+        resposta.status(400).json({erro: err.message})
+    }
+})
+
+usuarioRotas.post("/trocaCargo", JwtGuard, async(enviado,resposta) => {
+    const{novoCargo} = enviado.body
+    try{
+        const novoUsuario = await usuario.trocaCargo(enviado.user.id,novoCargo)
+        resposta.status(200).json(novoUsuario)
+    }catch(err){
+        resposta.status(400).json({erro: err.message})
+    }
+})
+
+usuarioRotas.post("/trocaNucleo", JwtGuard, async(enviado,resposta) => {
+    const{novoNucleo} = enviado.body
+    console.log("entrou na rota nucleo")
+    console.log(novoNucleo)
+    try{
+        const novoUsuario = await usuario.trocaNucleo(enviado.user.id,novoNucleo)
+        resposta.status(200).json(novoUsuario)
+    }catch(err){
+        resposta.status(400).json({erro: err.message})
+    }
+})
+
 usuarioRotas.post("/procuraemail", async(enviado,resposta) => {
-    console.log("Entrou na rota")
     const{email} = enviado.body;
-    console.log(email)
     if(await usuario.procuraPorEmail(email)){
         console.log(1)
         resposta.status(200).json(1)
