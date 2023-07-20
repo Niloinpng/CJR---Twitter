@@ -36,6 +36,15 @@ function fechaModal(event) {
     publishContent.classList.remove("modal-visible")
 };
 
+<<<<<<< HEAD
+// Most options demonstrate the non-default behavior
+var simplemde = new SimpleMDE({
+	element: document.getElementById("md"),
+	placeholder: "Converse com a gente...",
+    spellChecker: false,
+    toolbar: ["bold", "italic", "heading", "link", "image", "|", "guide"]
+});
+=======
 async function nave(){
     const accessToken = localStorage.getItem('accessToken'); //Pega o token de acesso 
     console.log(accessToken) 
@@ -55,3 +64,4 @@ async function posts(){
 nave()
 posts()
 
+>>>>>>> 544e1f03bbb5774b49db81d6026c4e02722b7925
