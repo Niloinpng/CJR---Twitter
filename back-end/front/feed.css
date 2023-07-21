@@ -34,6 +34,9 @@ nav {
 
 .nav-content {
     list-style-type: none;  /*tira bullets da lista*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nav-content li {
@@ -41,7 +44,25 @@ nav {
     font-size: 100%;
     font-weight: bold;
     color: var(--fontColorLight);
-    padding: 6px 60px;
+    padding: 6px 70px;
+
+
+}
+
+.profile-img {
+    width: 65px;
+    border-radius: 50%;
+    border: #29A0B1 5px solid;
+    aspect-ratio: 1/1;
+    margin-left: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.name {
+    color: #fff;
 }
 
 #entrar-conta, .feed-publicar-button, .confirmar-publish {

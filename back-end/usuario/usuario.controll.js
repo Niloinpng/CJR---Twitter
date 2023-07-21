@@ -33,7 +33,7 @@ usuarioRotas.post("/perfil", async(eviado, resposta) => {
     }
 })
 
-usuarioRotas.delete("/usuario/:id", JwtGuard ,async(eviado,resposta) => {
+usuarioRotas.delete("/usuario/:id", JwtGuard ,async(eviado,resposta) => { 
     if(eviado.user.id !== +eviado.params.id )
         return resposta.status(403).json({message: "Você não tem permissão para deletar este usuário"})
     const{id} = eviado.params;

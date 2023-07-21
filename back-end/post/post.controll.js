@@ -5,7 +5,7 @@ import { Router } from "express";
 const postRotas = Router();
 const post = new Post();
 
-postRotas.post("/post", JwtGuard, async(eviado,resposta) => {
+postRotas.post("/post", JwtGuard, async(eviado,resposta) => { //criar post 
     const{content} = eviado.body;
     try{
         const novoPost = await post.criarPost(content,eviado.user.id)
@@ -15,12 +15,12 @@ postRotas.post("/post", JwtGuard, async(eviado,resposta) => {
     }
 })
 
-postRotas.get("/post", async(eviado,resposta) => {
+postRotas.get("/post", async(eviado,resposta) => { //mostra todos os post por ordem de publicação
     const listaPost = await post.procuraPost();
     resposta.status(200).json(listaPost);
 })
 
-postRotas.delete("/post/:id", JwtGuard ,async(eviado,resposta) => {
+postRotas.delete("/post/:id", JwtGuard ,async(eviado,resposta) => { //deleta o post 
     const user_id = await post.procuraIDusuario(+eviado.params.id) 
     if(eviado.user.id !== user_id)
         return resposta.status(403).json({message: "Você não tem permissão para deletar este post"})
@@ -32,7 +32,7 @@ postRotas.delete("/post/:id", JwtGuard ,async(eviado,resposta) => {
     }
 })
 
-postRotas.post("/editaPost/:id", JwtGuard, async(enviado,resposta) => {
+postRotas.post("/editaPost/:id", JwtGuard, async(enviado,resposta) => { // para editar o post
     const user_id = await post.procuraIDusuario(+enviado.params.id)
     console.log(user_id)
     console.log(enviado.user.id)
