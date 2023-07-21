@@ -55,6 +55,13 @@ nav {
     border: #29A0B1 5px solid;
     aspect-ratio: 1/1;
     margin-left: 10px;
+    display: none;
+}
+
+.sair-icon{
+    width: 30px;
+    margin-left: 10px;
+    display: none;
 }
 
 a {

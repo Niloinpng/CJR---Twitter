@@ -25,22 +25,14 @@ var email = document.getElementById('email')
 
 async function padrao (id){
     let usuario = await procuraUsario(id)
-    //console.log(usuario)
-    //imagem.innerHTML = usuario.imagem
     nome.innerHTML = usuario.nome
     nucleo.innerHTML = usuario.nucleo.nome
     cargo.innerHTML = usuario.cargo
     email.innerHTML = usuario.email
     img.src = usuario.imagem 
-    console.log(img)
-    /*let imagem = await procuraimagem(usuario.emai)
-    console.log(imagem)
-    if (imagem){
-        img.src = imagem
-    }*/
 }
 
-padrao(19)
+padrao(22)
 
 function abreModal(event) {
     event.preventDefault();

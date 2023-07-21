@@ -21,7 +21,6 @@ usuarioRotas.get("/usuario", async(eviado,resposta) => {
 })
 
 usuarioRotas.post("/perfil", async(eviado, resposta) => {
-    console.log("entrou na rota perfil")
     const{id} = eviado.body;
     const usuario_perfil = await usuario.Perfil(+id);
     if(!usuario_perfil)

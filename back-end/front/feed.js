@@ -28,7 +28,7 @@ async function procuraUsario (Id){
     return response.json()
 }
 
-async function geraFeed (){
+async function MostraPots(){
     const response = await fetch("http://localhost:3000/post", {
             method: "get", 
             headers: {"Content-type": "application/json"}
@@ -60,6 +60,7 @@ var img = document.getElementById('imagemUser')
 var entrar_conta = document.getElementById('entrar-conta')
 var criar_conta = document.getElementById('criar-conta')
 var botão_publicar = document.getElementById('publicar')
+var botão_sair = document.getElementById('botão-sair')
 
 async function nave(){
     const accessToken = localStorage.getItem('accessToken'); //Pega o token de acesso 
@@ -75,6 +76,8 @@ async function nave(){
                 nome.innerHTML = usuario.nome
                 img.src = usuario.imagem
                 console.log(img)
+                img.style.display='block'
+                botão_sair.style.display='block'
             }else if(usuario_info.message){
                 nome.style.display='none'
                 img.style.display='none'
@@ -90,8 +93,15 @@ async function nave(){
     }
 }
 
+botão_sair.addEventListener("click",async(event)=> {
+    event.preventDefault();
+    localStorage.clear();
+    alert("Deslogado")
+    window.location.href = 'http://localhost:3000/index.html'
+})
+
 async function geraFeed(){
-    const posts = await geraFeed();
+    const posts = await MostraPots();
     console.log(posts)
 }
 
