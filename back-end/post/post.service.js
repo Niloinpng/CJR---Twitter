@@ -28,7 +28,6 @@ class Post{
         const PostAtualizado = await prisma.post.update({
             where: {id},
             data: {content: novoContent},
-            //updated_at: new Date()}
         })
         return PostAtualizado
     }
