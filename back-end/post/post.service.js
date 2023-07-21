@@ -17,13 +17,29 @@ class Post{
         });
     }
 
-//   async procuraPostID(){
-//        return await 
-//    }
+    async procuraIDusuario(id){
+        const Post = await prisma.post.findUnique({
+            where: {id}
+        })
+        return Post.user_id
+    }
 
-    async deletaPost(id,user_id){
-        const post = await prisma.post.delete({where: { id }})
-        if post.user_id == user_id)
+    async editaPost(id,novoContent){
+        const PostAtualizado = await prisma.post.update({
+            where: {id},
+            data: {content: novoContent},
+            //updated_at: new Date()}
+        })
+        return PostAtualizado
+    }
+
+    async deletaPost(id){
+        return await prisma.post.delete({ 
+            where: { id },
+        }).catch(e => {
+            if(e.code == "P2025") throw new Error("Post não encontrado");
+            throw e;
+        })
     }
 }
 
