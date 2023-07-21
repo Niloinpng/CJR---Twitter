@@ -7,6 +7,16 @@ async function info (accessToken){
     return response.json()
 }
 
+async function procuraUsario (Id){
+    const response = await fetch("http://localhost:3000/perfil", {
+            method: "post", 
+            headers: {"Content-type": "application/json"},
+            body: JSON.stringify({id : Id}),
+    
+    })
+    return response.json()
+}
+
 async function criaPost(accessToken, post) {
     const response = await fetch("http://localhost:3000/post", {
         method: "post",
@@ -102,6 +112,15 @@ botão_sair.addEventListener("click",async(event)=> {
 
 async function geraFeed(){
     const posts = await MostraPots();
+    for (let post of posts) {
+        let idUserAuthor = post.user_id;
+        let postData = post.created_at;
+        let postContent = post.content;
+        let userInfo = await procuraUsario(idUserAuthor);
+        // userInfo -> tipo Usuario
+        let nome = userInfo.nome;
+        let imagem = userInfo.imagem;
+    }
     console.log(posts)
 }
 
