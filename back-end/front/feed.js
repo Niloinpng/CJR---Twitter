@@ -69,6 +69,10 @@ async function nave(){
                 console.log(img)
                 img.style.display='block'
                 botão_sair.style.display='block'
+                let link_perfil = document.getElementById('perfil-logado')
+                let link_perfil2 = document.getElementById('perfil-logado2')
+                link_perfil.href = 'http://localhost:3000/perfil.html?perfil=' + usuario_info.id;
+                link_perfil2.href = 'http://localhost:3000/perfil.html?perfil=' + usuario_info.id;
             }else if(usuario_info.message){
                 nome.style.display='none'
                 img.style.display='none'
