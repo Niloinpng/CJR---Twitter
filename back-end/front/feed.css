@@ -221,6 +221,8 @@ main {
 
 #profile-image {
     border-radius: 50px;
+    width: 50px;
+    aspect-ratio: 1/1;
 }
 
 .feed-text {

@@ -46,25 +46,6 @@ async function MostraPots(){
     return response.json()
 }
 
-function abreModal(event) {
-    event.preventDefault();
-    let publishContent = document.querySelector(".modal-overlay");
-    publishContent.classList.add("modal-visible")
-};
-
-function fechaModal(event) {
-    event.preventDefault();
-    let publishContent = document.querySelector(".modal-overlay");
-    publishContent.classList.remove("modal-visible")
-};
-
-var simplemde = new SimpleMDE({
-	element: document.getElementById("md"),
-	placeholder: "Converse com a gente...",
-    spellChecker: false,
-    toolbar: ["bold", "italic", "heading", "link", "image", "|", "guide"]
-});
-
 var nome = document.getElementById('nome')
 var img = document.getElementById('imagemUser')
 var entrar_conta = document.getElementById('entrar-conta')
@@ -117,7 +98,7 @@ function gmessageheader(foto, nome, criado,endereco){
     messageheader.className = 'message-header'
 
     var link = document.createElement('a')
-    link.href = 'http://localhost:3000/perfil.html'+endereco
+    link.href = 'http://localhost:3000/perfil.html/' + endereco;
 
     var profileImage = document.createElement('img')
     profileImage.id = 'profile-image'
@@ -158,7 +139,7 @@ function gmessagebodymessagecomment(id) {
     commentIcon.id = "comment-button"
     commentIcon.src = "images/comment icon.svg"
     commentIcon.alt = "comment icon"
-    commentIcon.onclick = postar
+    commentIcon.onclick = postarModal;
     commentIcon.idpost = id
     messageBodyComment.appendChild(commentIcon)
     return messageBodyComment
@@ -187,7 +168,9 @@ async function geraFeed(){
     const posts = await MostraPots();
     for (let post of posts) {
         let idPost = post.id;
-        let postData = post.created_at;
+        let postDataProv = post.created_at;
+        postDataList = postDataProv.split("T")[0].split("-");
+        postData = postDataList[2] + "/" + postDataList[1] + "/" + postDataList[0];
         let postContent = post.content;
         let idUserAuthor = post.user_id;
         let userInfo = await procuraUsario(idUserAuthor);
@@ -196,6 +179,30 @@ async function geraFeed(){
         gerarpost(imagem, nome, postData, postContent, idPost, idUserAuthor);
     }
 }
+
+function fechaModal(event) {
+    event.preventDefault();
+    let publishContent = document.querySelector(".modal-overlay");
+    publishContent.classList.remove("modal-visible")
+};
+
+async function postarModal(event){
+    var botaoClicado = event.target
+    var idbotao = botaoClicado.idpost
+    if (idbotao){
+        comentar(idbotao)
+    } else {
+        event.preventDefault();
+        let publishContent = document.querySelector(".modal-overlay");
+        publishContent.classList.add("modal-visible");
+    }
+}
+var simplemde = new SimpleMDE({
+	element: document.getElementById("md"),
+	placeholder: "Converse com a gente...",
+    spellChecker: false,
+    toolbar: ["bold", "italic", "heading", "link", "image", "|", "guide"]
+});
 
 const submitButton = document.getElementById("enviar");
 
@@ -207,6 +214,7 @@ submitButton.addEventListener("click", async (event) => {
         console.log("existe token");
         await criaPost(accessToken, post);
         alert("Post enviado!")
+        location.reload();
     }
 });
 
