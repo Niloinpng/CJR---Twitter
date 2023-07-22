@@ -8,6 +8,26 @@ async function procuraUsario (Id){
     return response.json()
 }
 
+async function MostraPots(){
+    const response = await fetch("http://localhost:3000/post", {
+            method: "get", 
+            headers: {"Content-type": "application/json"}
+    })
+    return response.json()
+}
+
+async function criaPost(accessToken, post) {
+    const response = await fetch("http://localhost:3000/post", {
+        method: "post",
+        headers: {
+            "Content-type": "application/json",
+            "authorization": "Bearer "+ accessToken
+        },
+        body: JSON.stringify({ content: post })
+    })
+    return response.json();
+}
+
 async function procuraimagem (Email){
     const response = await fetch("http://localhost:3000/imagem", {
             method: "post", 
@@ -32,7 +52,11 @@ async function padrao (id){
     img.src = usuario.imagem 
 }
 
-padrao(22)
+let ID_PERFIL = window.location.href.split('?perfil=')[1];
+
+console.log(ID_PERFIL)
+
+padrao(ID_PERFIL)
 
 const publicacoes = document.getElementById('posts')
 
@@ -41,7 +65,7 @@ function gmessageheader(foto, nome, criado,endereco){
     messageheader.className = 'message-header'
 
     var link = document.createElement('a')
-    link.href = 'http://localhost:3000/perfil.html/' + endereco;
+    link.href = 'http://localhost:3000/perfil.html?perfil=' + endereco;
 
     var profileImage = document.createElement('img')
     profileImage.id = 'profile-image'
@@ -111,7 +135,7 @@ async function geraFeed(){
     const posts = await MostraPots();
     for (let post of posts) {
         let idUserAuthor = post.user_id;
-        if(idUserAuthor == 22){
+        if(idUserAuthor == ID_PERFIL){
             let idPost = post.id;
             let postDataProv = post.created_at;
             postDataList = postDataProv.split("T")[0].split("-");
@@ -125,14 +149,42 @@ async function geraFeed(){
     }
 }
 
-function abreModal(event) {
-    event.preventDefault();
-    let publishContent = document.querySelector(".modal-overlay");
-    publishContent.classList.add("modal-visible")
-};
-
 function fechaModal(event) {
     event.preventDefault();
     let publishContent = document.querySelector(".modal-overlay");
     publishContent.classList.remove("modal-visible")
 };
+
+async function postarModal(event){
+    var botaoClicado = event.target
+    var idbotao = botaoClicado.idpost
+    if (idbotao){
+        comentar(idbotao)
+    } else {
+        event.preventDefault();
+        let publishContent = document.querySelector(".modal-overlay");
+        publishContent.classList.add("modal-visible");
+    }
+}
+var simplemde = new SimpleMDE({
+    element: document.getElementById("md"),
+    placeholder: "Converse com a gente...",
+    spellChecker: false,
+    toolbar: ["bold", "italic", "heading", "link", "image", "|", "guide"]
+});
+
+const submitButton = document.getElementById("enviar");
+
+submitButton.addEventListener("click", async (event) => {
+    event.preventDefault();
+    post = simplemde.value();
+    const accessToken = localStorage.getItem('accessToken'); //Pega o token de acesso 
+    if (accessToken) {
+        console.log("existe token");
+        await criaPost(accessToken, post);
+        alert("Post enviado!")
+        location.reload();
+    }
+});
+
+geraFeed()

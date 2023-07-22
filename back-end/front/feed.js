@@ -98,7 +98,7 @@ function gmessageheader(foto, nome, criado,endereco){
     messageheader.className = 'message-header'
 
     var link = document.createElement('a')
-    link.href = 'http://localhost:3000/perfil.html/' + endereco;
+    link.href = 'http://localhost:3000/perfil.html?perfil=' + endereco;
 
     var profileImage = document.createElement('img')
     profileImage.id = 'profile-image'
