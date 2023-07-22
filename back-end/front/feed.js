@@ -29,6 +29,19 @@ async function criaPost(accessToken, post) {
     return response.json();
 }
 
+async function criaComrntario(accessToken, comentario, id_post) {
+    const response = await fetch("http://localhost:3000/comentario", {
+        method: "post",
+        headers: {
+            "Content-type": "application/json",
+            "authorization": "Bearer "+ accessToken
+        },
+        body: JSON.stringify({ content: comentario, post_id: id_post })
+    })
+    return response.json();
+}
+
+
 async function procuraUsario (Id){
     const response = await fetch("http://localhost:3000/perfil", {
             method: "post", 
