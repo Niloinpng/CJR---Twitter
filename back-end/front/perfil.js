@@ -1,3 +1,12 @@
+async function info (accessToken){
+    const response = await fetch("http://localhost:3000/info", {
+            method: "get", 
+            headers: {"Content-type": "application/json",
+            "authorization": "Bearer "+ accessToken}
+    })
+    return response.json()
+}
+
 async function procuraUsario (Id){
     const response = await fetch("http://localhost:3000/perfil", {
             method: "post", 
@@ -42,6 +51,53 @@ var nome = document.getElementById('nome')
 var nucleo = document.getElementById('nucleo')
 var cargo = document.getElementById('cargo')
 var email = document.getElementById('email')
+var botão_sair = document.getElementById('botão-sair')
+var nome_nave = document.getElementById('nome-nave')
+var imagem_nave = document.getElementById('imagemUser')
+var criar_conta = document.getElementById('criar-conta')
+var entrar_conta = document.getElementById('entrar-conta')
+
+async function nave(){
+    const accessToken = localStorage.getItem('accessToken'); //Pega o token de acesso 
+    console.log(accessToken) 
+    if((accessToken)){ //Verifica se tem algum token 
+        try{
+            const usuario_info = await info(accessToken)
+            if(usuario_info.id){
+                entrar_conta.style.display='none'
+                criar_conta.style.display='none'
+                const usuario_nave = await procuraUsario(usuario_info.id)
+                console.log(usuario_nave)
+                nome_nave.innerHTML = usuario_nave.nome
+                imagem_nave.src = usuario_nave.imagem
+                imagem_nave.style.display='block'
+                botão_sair.style.display='block'
+                let link_perfil = document.getElementById('perfil-logado')
+                let link_perfil2 = document.getElementById('perfil-logado2')
+                link_perfil.href = 'http://localhost:3000/perfil.html?perfil=' + usuario_info.id;
+                link_perfil2.href = 'http://localhost:3000/perfil.html?perfil=' + usuario_info.id;
+            }else if(usuario_info.message){
+                nome_nave.style.display='none'
+                imagem_nave.style.display='none'
+                console.log(usuario_info.message)
+            }
+        }catch(err){
+            alert(err)
+            console.log(err)
+        }
+    }
+    if(!accessToken){
+        botão_publicar.style.display='none'
+    }
+}
+
+botão_sair.addEventListener("click",async(event)=> {
+    event.preventDefault();
+    localStorage.clear();
+    alert("Deslogado")
+    window.location.href = 'http://localhost:3000/index.html'
+})
+
 
 async function padrao (id){
     let usuario = await procuraUsario(id)
@@ -188,3 +244,4 @@ submitButton.addEventListener("click", async (event) => {
 });
 
 geraFeed()
+nave()

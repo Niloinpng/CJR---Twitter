@@ -49,7 +49,7 @@ nav {
 
 }
 
-.profile-img {
+.profile-nave {
     width: 65px;
     border-radius: 50%;
     border: #29A0B1 5px solid;
@@ -62,13 +62,14 @@ nav {
     width: 30px;
     margin-left: 10px;
     display: none;
+    cursor: pointer;
 }
 
 a {
     text-decoration: none;
 }
 
-.name {
+.name-nave {
     color: #fff;
 }
 
