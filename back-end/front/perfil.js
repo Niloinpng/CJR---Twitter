@@ -56,6 +56,7 @@ var nome_nave = document.getElementById('nome-nave')
 var imagem_nave = document.getElementById('imagemUser')
 var criar_conta = document.getElementById('criar-conta')
 var entrar_conta = document.getElementById('entrar-conta')
+var botão_publicar = document.getElementById('publicar')
 
 async function nave(){
     const accessToken = localStorage.getItem('accessToken'); //Pega o token de acesso 
