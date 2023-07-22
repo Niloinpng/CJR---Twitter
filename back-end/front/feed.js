@@ -68,7 +68,6 @@ var botão_sair = document.getElementById('botão-sair')
 
 async function nave(){
     const accessToken = localStorage.getItem('accessToken'); //Pega o token de acesso 
-    console.log(accessToken) 
     if((accessToken)){ //Verifica se tem algum token 
         try{
             const usuario_info = await info(accessToken)
@@ -76,10 +75,8 @@ async function nave(){
                 entrar_conta.style.display='none'
                 criar_conta.style.display='none'
                 const usuario = await procuraUsario(usuario_info.id)
-                console.log(usuario)
                 nome.innerHTML = usuario.nome
                 img.src = usuario.imagem
-                console.log(img)
                 img.style.display='block'
                 botão_sair.style.display='block'
                 let link_perfil = document.getElementById('perfil-logado')
@@ -89,11 +86,10 @@ async function nave(){
             }else if(usuario_info.message){
                 nome.style.display='none'
                 img.style.display='none'
-                console.log(usuario_info.message)
+                alert(usuario_info.message)
             }
         }catch(err){
             alert(err)
-            console.log(err)
         }
     }
     if(!accessToken){
@@ -228,7 +224,6 @@ submitButton.addEventListener("click", async (event) => {
     post = simplemde.value();
     const accessToken = localStorage.getItem('accessToken'); //Pega o token de acesso 
     if (accessToken) {
-        console.log("existe token");
         await criaPost(accessToken, post);
         alert("Post enviado!")
         location.reload();

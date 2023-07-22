@@ -59,7 +59,6 @@ var entrar_conta = document.getElementById('entrar-conta')
 
 async function nave(){
     const accessToken = localStorage.getItem('accessToken'); //Pega o token de acesso 
-    console.log(accessToken) 
     if((accessToken)){ //Verifica se tem algum token 
         try{
             const usuario_info = await info(accessToken)
@@ -67,7 +66,6 @@ async function nave(){
                 entrar_conta.style.display='none'
                 criar_conta.style.display='none'
                 const usuario_nave = await procuraUsario(usuario_info.id)
-                console.log(usuario_nave)
                 nome_nave.innerHTML = usuario_nave.nome
                 imagem_nave.src = usuario_nave.imagem
                 imagem_nave.style.display='block'
@@ -79,11 +77,10 @@ async function nave(){
             }else if(usuario_info.message){
                 nome_nave.style.display='none'
                 imagem_nave.style.display='none'
-                console.log(usuario_info.message)
+                alert(usuario_info.message)
             }
         }catch(err){
             alert(err)
-            console.log(err)
         }
     }
     if(!accessToken){
@@ -109,8 +106,6 @@ async function padrao (id){
 }
 
 let ID_PERFIL = window.location.href.split('?perfil=')[1];
-
-console.log(ID_PERFIL)
 
 padrao(ID_PERFIL)
 
@@ -236,7 +231,6 @@ submitButton.addEventListener("click", async (event) => {
     post = simplemde.value();
     const accessToken = localStorage.getItem('accessToken'); //Pega o token de acesso 
     if (accessToken) {
-        console.log("existe token");
         await criaPost(accessToken, post);
         alert("Post enviado!")
         location.reload();

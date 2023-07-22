@@ -86,8 +86,6 @@ usuarioRotas.post("/trocaCargo", JwtGuard, async(enviado,resposta) => {
 
 usuarioRotas.post("/trocaNucleo", JwtGuard, async(enviado,resposta) => {
     const{novoNucleo} = enviado.body
-    console.log("entrou na rota nucleo")
-    console.log(novoNucleo)
     try{
         const novoUsuario = await usuario.trocaNucleo(enviado.user.id,novoNucleo)
         resposta.status(200).json(novoUsuario)
@@ -108,8 +106,6 @@ usuarioRotas.post("/procuraemail", async(enviado,resposta) => {
 })
 
 usuarioRotas.post("/trocasenha", async(enviado, resposta) => {
-    console.log("entrou na rota de trocar senha");
-    console.log(enviado);
     const{email, novaSenha} = enviado.body;
     console.log(email, novaSenha);
     if (await usuario.trocarSenha(email, novaSenha)) {
